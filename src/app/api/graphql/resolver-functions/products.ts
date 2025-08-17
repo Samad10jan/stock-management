@@ -48,7 +48,7 @@ export async function getProduct(_:any,args:{id:string}) {
             include:{
                 sales:{
                     orderBy:{
-                        createdAt:"desc"
+                        createdAt:"asc"
                     }
                 }
             }
@@ -67,10 +67,13 @@ export async function getProduct(_:any,args:{id:string}) {
     
     
 }
-export async function  createSale(_:any,args:{id:string,quantity:number}) {
+export async function createSale(_:any,args:{id:string,quantity:number}) {
     const id= args.id
     const quantity= args.quantity 
+    console.log(quantity);
+    
     try {
+        // create sale
         const sale = await prismaClient.sale.create({
            
             data:{
@@ -78,6 +81,8 @@ export async function  createSale(_:any,args:{id:string,quantity:number}) {
                 quantity:quantity
             }
         })
+
+        // id sale created decrease stock
         // if return sale ,i.e data created then update in product:- stock decrement by given quantity
         if(sale){
             await prismaClient.product.update({

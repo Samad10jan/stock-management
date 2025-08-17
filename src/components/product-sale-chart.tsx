@@ -1,4 +1,4 @@
-import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts';
+import { CartesianGrid, Legend, Line, LineChart, ResponsiveContainer, Tooltip, XAxis, YAxis } from 'recharts';
 
 
 
@@ -10,22 +10,17 @@ export default function ProductSaleChart({data}:{
     }[]
 }) 
 {
-    // console.log(data);
+    
     
     
   
   return (
     <ResponsiveContainer width="100%" height="100%">
       <LineChart
-        width={500}
+        width={400}
         height={300}
         data={data}
-        margin={{
-          top: 5,
-          right: 30,
-          left: 20,
-          bottom: 5,
-        }}
+        className='pr-10'
       >
         <CartesianGrid strokeDasharray="3 3" />
         <XAxis dataKey="date" />

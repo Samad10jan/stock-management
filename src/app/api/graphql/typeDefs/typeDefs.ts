@@ -14,7 +14,7 @@ const typeDefs = gql`
     updateUserProfile(userId:String!,name:String!,email:String!,username:String!,avatar:String):Boolean
     addProducts(title:String!,description:String!,category:String!,price:Float!,stock:Int!,imageUrl:String!):Product
 
-    createSale(id:String!,quntity:Int!):Boolean
+    createSale(id:String!,quantity:Int!):Boolean
   
 
   }

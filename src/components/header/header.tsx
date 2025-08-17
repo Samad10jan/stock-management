@@ -13,7 +13,7 @@ export default function Header() {
     const { isDark, setIsDark } = useContext(ThemeContext)
 
     return (
-        <header className={`flex justify-between items-center *:mx-5 sticky top-0 left-0 right-0 z-50 ${isDark?'bg-gray-950':`bg-white`} `}>
+        <header className={`flex justify-between items-center *:mx-5 sticky top-0 left-0 right-0 z-50 ${isDark?'bg-gray-950':`bg-white`}  `}>
             <div className="relative h-13 w-13 rounded-full my-5">
                 <Image src={"https://cdn-icons-png.flaticon.com/512/12474/12474329.png"} alt="Store Management" fill />
             </div>

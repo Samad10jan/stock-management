@@ -134,15 +134,15 @@ export default function PieChartHero() {
   }
 
   return (
-    <div className="w-full h-full flex flex-col">
+    <div className="w-full h-full flex flex-col rounded-full relative">
       {/* Chart Heading */}
-      <div className="text-center mb-2">
+      <div className="absolute top-0 mb-6">
         <h2 className="text-4xl font-bold">Current Items Stock</h2>
       </div>
 
 
       <div className="flex-1 min-h-[400px]" >
-        <ResponsiveContainer width="100%" height="100%">
+        <ResponsiveContainer >
           <PieChart>
             <Pie
               activeIndex={activeIndex}

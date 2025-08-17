@@ -1,6 +1,7 @@
 "use client"
 
 
+import CallOut from "@/components/reuseable-componets/call-out";
 import { LOGIN_USER } from "@/lib/gql/queries";
 import gqlClient from "@/lib/services/gql";
 import { InfoCircledIcon } from "@radix-ui/react-icons";
@@ -98,19 +99,11 @@ export default function Login() {
                             Login
                         </Text>
                     </Button>
-                    { (Object.keys(error).length)>0 &&
+                    {(Object.keys(error).length) > 0 &&
 
                         <div>
-                        <Callout.Root variant="outline" color="red">
-                            <Callout.Icon>
-                                <InfoCircledIcon />
-                            </Callout.Icon>
-                            <Callout.Text>
-                                {error.message}
-                            </Callout.Text>
-                        </Callout.Root>
-
-                    </div>
+                            <CallOut message={error.message} />
+                        </div>
                     }
 
 

@@ -28,6 +28,6 @@ mutation AddProducts($title: String!, $description: String!, $category: String!,
 }`
 
 export const CREATE_SALE= gql`
-mutation Mutation($productId: String!, $quntity: Int!) {
-  createSale(id: $productId, quntity: $quntity)
+mutation Mutation($productId: String!, $quantity: Int!) {
+  createSale(id: $productId, quantity: $quantity)
 }`

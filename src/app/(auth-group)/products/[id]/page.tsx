@@ -19,7 +19,7 @@ export default function ProductPage() {
 
 
     useEffect(() => {
-       
+
         async function getProduct() {
             const data: { getProduct: ProductWithSale } = await gqlClient.request(GET_PROD, {
                 getProductId: id
@@ -53,28 +53,35 @@ export default function ProductPage() {
     }) || [];
 
     return (
-        <div className="flex gap-5 justify-around">
-            <div>
+        <div className="flex gap-5 justify-evenly *:mx-5">
 
-                
-                    <div >
-                        <ProductCard product={product} loading={loading} />
 
-                        <AddSaleButton product={product} />
-                    </div>
-               
 
+            <div >
+                <ProductCard product={product as ProductWithSale} loading={loading} />
 
 
             </div>
-            {
-              charData.length>0 ? 
-              <div className="w-1/2 h-67">
 
-                <ProductSaleChart data={charData} />
-            </div>:<div>No Sale Yet</div>
-            }
 
+
+
+
+
+            <div className="flex flex-col justify-evenly grow-3">
+
+                {
+                    charData.length > 0 ?
+                        <div className="w-full h-67 grow">
+
+                            <ProductSaleChart data={charData} />
+                        </div> : <div>No Sale Yet</div>
+                }
+
+                <div >
+                    <AddSaleButton product={product as ProductWithSale} />
+                </div>
+            </div>
         </div>
     )
 }
