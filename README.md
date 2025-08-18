@@ -156,4 +156,4 @@ The application uses GraphQL for efficient data operations:
 
 
 
-Built with ❤️ using Next.js, MongoDB, and GraphQL
+Built using Next.js, MongoDB, and GraphQL
