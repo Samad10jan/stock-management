@@ -1,7 +1,7 @@
 import { gql } from "graphql-request";
 import gqlClient from "../services/gql";
 
-export const CREATE_USER=gql`
+export const CREATE_USER = gql`
 
 mutation Mutation($name: String!, $email: String!, $username: String!, $password: String!, $role: String!) {
   createUser(name: $name, email: $email, username: $username, password: $password, role: $role) {
@@ -14,7 +14,7 @@ mutation Mutation($name: String!, $email: String!, $username: String!, $password
   }
 }`
 
-export const ADD_PROD= gql`
+export const ADD_PROD = gql`
 mutation AddProducts($title: String!, $description: String!, $category: String!, $price: Float!, $stock: Int!, $imageUrl: String!) {
   addProducts(title: $title, description: $description, category: $category, price: $price, stock: $stock, imageUrl: $imageUrl) {
     id
@@ -27,7 +27,12 @@ mutation AddProducts($title: String!, $description: String!, $category: String!,
   }
 }`
 
-export const CREATE_SALE= gql`
+export const CREATE_SALE = gql`
 mutation Mutation($productId: String!, $quantity: Int!) {
   createSale(id: $productId, quantity: $quantity)
+}`
+
+export const EDIT_ROLE = gql`
+mutation Mutation($userId: String, $role: String) {
+  updateUserRole(userId: $userId, role: $role)
 }`

@@ -5,10 +5,10 @@ import { GET_All_USER } from "@/lib/gql/queries";
 import gqlClient from "@/lib/services/gql";
 import { Card, Heading, Skeleton, Spinner } from "@radix-ui/themes";
 import { User } from "../../../generated/prisma";
-import UserCard from "../user-card";
+import UserCard from "../cards/user-card";
 import AddUserButton from "./add-user";
 import AddProductsButton from "./add-products-btn";
-import ProductList from "../products list";
+import ProductList from "../homepage/products list";
 import { UserContext } from "../contexts/user-context";
 
 export default function AdminDashBoard() {

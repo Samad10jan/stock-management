@@ -3,7 +3,7 @@ import { startServerAndCreateNextHandler } from "@as-integrations/next";
 import { NextRequest } from "next/server";
 
 import getUserFromCookies from "@/lib/helper";
-import { createUser, getAllUsers, logginUser, updateUserProfile, updateUserRole } from "./resolver-functions/user/resolver";
+import { createUser, getAllUsers, getUser, logginUser, updateUserProfile, updateUserRole } from "./resolver-functions/user/resolver";
 import typeDefs from "./typeDefs/typeDefs";
 import { addProducts, createSale, getAllPorducts, getProduct } from "./resolver-functions/products";
 import { Sale } from "../../../../generated/prisma";
@@ -20,6 +20,7 @@ const resolvers = {
         getAllUsers:getAllUsers,
         getAllPorducts:getAllPorducts,
         getProduct:getProduct,
+        getUser:getUser
        
     },
     Mutation:{

@@ -4,19 +4,16 @@
 import CallOut from "@/components/reuseable-componets/call-out";
 import { LOGIN_USER } from "@/lib/gql/queries";
 import gqlClient from "@/lib/services/gql";
-import { InfoCircledIcon } from "@radix-ui/react-icons";
-import { Button, Callout, Card, Heading, Text, TextField } from "@radix-ui/themes";
+import { Button, Card, Heading, Text, TextField } from "@radix-ui/themes";
 import Image from "next/image";
 import { useState } from "react";
-
-
 
 export default function Login() {
     const [userCred, setUserCred] = useState("")
     const [password, setPassword] = useState("")
 
     const [error, setError] = useState<{
-        message?: string
+        message?: string | undefined
     }>({})
 
     const [loading, setLoading] = useState(false)
@@ -34,21 +31,20 @@ export default function Login() {
 
             })
             if (user.loginUser) {
-                // alert("Logged In")
-                // setError({ message: "Logged In" })
+
                 window.location.href = "/"
                 setLoading(true)
 
             }
             else {
-                // alert("invalid")
+
                 setError({ message: "Unable to Login Check Your Credentials" })
 
             }
 
 
         } catch (err) {
-            // alert("invalid error")
+
 
             setError({
                 message: "SomeThing Went worng try again later"
@@ -77,7 +73,7 @@ export default function Login() {
                     <Heading align={"center"} style={{
                         margin: "20px 0",
 
-                    }}>Store Management</Heading>
+                    }}>Product Stock Management</Heading>
 
                     <div className="relative h-16 w-16 rounded-full my-5">
                         <Image src={"https://cdn-icons-png.flaticon.com/512/12474/12474329.png"} alt="Store Management" fill />
@@ -102,7 +98,7 @@ export default function Login() {
                     {(Object.keys(error).length) > 0 &&
 
                         <div>
-                            <CallOut message={error.message} />
+                            <CallOut message={error.message as string} />
                         </div>
                     }
 

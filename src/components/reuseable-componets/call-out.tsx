@@ -2,7 +2,7 @@ import { InfoCircledIcon } from "@radix-ui/react-icons";
 import { Callout } from "@radix-ui/themes";
 
 export default function CallOutMessage({message}:{
-    message:string|null
+    message:string
 }) {
      console.log(message?.length==0);
      console.log(message);

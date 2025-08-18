@@ -18,7 +18,7 @@ export default function ProfilePage() {
                     <Flex gap="3" align="center" direction={"column"}>
                         <Avatar
                             size="5"
-                            src={user?.avatar}
+                            src={user?.avatar||undefined}
                             radius="full"
                             fallback={user.name[0]||"U"}
                             

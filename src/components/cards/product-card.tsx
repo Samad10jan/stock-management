@@ -1,12 +1,9 @@
 import { Badge, Button, Card, Flex, Skeleton, Text } from "@radix-ui/themes";
-import { Product, Sale } from "../../generated/prisma";
+import { Product, Sale } from "../../../generated/prisma";
 import Image from "next/image";
 import { ProductWithSale } from "@/lib/types";
 
-type ProductCardProps = {
-    product: Product & { sales: Sale };
-    loading: boolean;
-};
+
 
 export default function ProductCard({ product, loading }: { product: ProductWithSale | Product, loading: boolean }) {
     return (
@@ -63,7 +60,7 @@ export default function ProductCard({ product, loading }: { product: ProductWith
                             </Flex>
 
 
-
+{/* 
                             <Flex gap="2">
                                 <Button size="2" style={{ flex: 1 }}>
                                     Edit
@@ -71,7 +68,7 @@ export default function ProductCard({ product, loading }: { product: ProductWith
                                 <Button size="2" color="red" variant="soft" style={{ flex: 1 }}>
                                     Delete
                                 </Button>
-                            </Flex>
+                            </Flex> */}
 
                         </>
                         }

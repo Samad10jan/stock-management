@@ -4,7 +4,8 @@ import { GET_All_PROD } from "@/lib/gql/queries";
 import gqlClient from "@/lib/services/gql";
 import { useEffect, useState } from "react";
 import { Cell, Pie, PieChart, ResponsiveContainer, Sector } from "recharts";
-import { Product } from "../../generated/prisma";
+import { Product } from "../../../generated/prisma";
+import { Heading, Text } from "@radix-ui/themes";
 
 const COLORS = [
   "#8884d8",
@@ -134,26 +135,34 @@ export default function PieChartHero() {
   }
 
   return (
-    <div className="w-full h-full flex flex-col rounded-full relative">
-      {/* Chart Heading */}
+    <div className="w-full h-full flex rounded-full relative ">
+      
       <div className="absolute top-0 mb-6">
-        <h2 className="text-4xl font-bold">Current Items Stock</h2>
+        <h2 className="text-4xl font-bold"> <div>
+          <Heading size="4">
+            Stock Distribution
+          </Heading>
+          <Text size="2" color="gray">
+            Visual breakdown of inventory
+          </Text>
+        </div></h2>
       </div>
 
 
-      <div className="flex-1 min-h-[400px]" >
+      <div className="flex flex-col min-h-96 grow  " >
         <ResponsiveContainer >
           <PieChart>
             <Pie
               activeIndex={activeIndex}
               activeShape={renderActiveShape}
               data={Data}
-              cx="50%"
+              cx="60%"
               cy="50%"
-              innerRadius={70}
-              outerRadius={110}
+              innerRadius={60}
+              outerRadius={130}
               fill="#8884d8"
               dataKey="stock"
+              
               onMouseEnter={onPieEnter}
             >
               {Data.map((entry, index) => (

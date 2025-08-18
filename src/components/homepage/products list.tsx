@@ -2,8 +2,8 @@
 import { GET_All_PROD } from "@/lib/gql/queries";
 import gqlClient from "@/lib/services/gql";
 import { useEffect, useState } from "react"
-import { Product } from "../../generated/prisma";
-import ProductCard from "./product-card";
+import { Product } from "../../../generated/prisma";
+import ProductCard from "../cards/product-card";
 import Link from "next/link";
 import { ProductWithSale } from "@/lib/types";
 
@@ -13,7 +13,7 @@ export default function ProductList({loading}:{loading:boolean}){
           async function getAllProducts() {
   
               const data :{getAllPorducts:ProductWithSale[]}= await gqlClient.request(GET_All_PROD);
-              console.log(data);
+            //   console.log(data);
               
               const products = data?.getAllPorducts || []
               setProducts(products)

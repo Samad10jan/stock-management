@@ -1,14 +1,13 @@
 "use client"
-import { useEffect, useState } from "react"
-import { Product, Sale } from "../../../../../generated/prisma"
-import gqlClient from "@/lib/services/gql"
+
+import ProductCard from "@/components/cards/product-card"
+import AddSaleButton from "@/components/product-page/add-sale-btn"
+import ProductSaleChart from "@/components/product-page/product-sale-chart"
 import { GET_PROD } from "@/lib/gql/queries"
-import { useParams } from "next/navigation"
-import { Skeleton, Spinner } from "@radix-ui/themes"
-import ProductCard from "@/components/product-card"
-import AddSaleButton from "@/components/add-sale-btn"
-import ProductSaleChart from "@/components/product-sale-chart"
+import gqlClient from "@/lib/services/gql"
 import { ProductWithSale } from "@/lib/types"
+import { useParams } from "next/navigation"
+import { useEffect, useState } from "react"
 
 export default function ProductPage() {
     const [product, setProduct] = useState<ProductWithSale>()
@@ -40,8 +39,8 @@ export default function ProductPage() {
     //?? quntity null
     console.log("productsales :", product);
 
-    const charData = product?.sales?.map((sales) => {
-        const date = new Date(Number.parseInt(sales.createdAt));
+    const charData= product?.sales?.map((sales) => {
+        const date  = new Date(Number(sales.createdAt));
         const format = `${date.getDate()}-${date.getMonth() + 1}-${date.getFullYear()}`;
         const quantity = sales?.quantity;
         // console.log("quntity", quantity);

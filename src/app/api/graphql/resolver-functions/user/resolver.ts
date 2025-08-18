@@ -41,7 +41,7 @@ export async function logginUser(_: any, args: { userCred: string, password: str
     }
 }
 
-export async function createUser(_: any, args: { name: string, email: string, username: string, password: string,role:RoleType }) {
+export async function createUser(_: any, args: { name: string, email: string, username: string, password: string, role: RoleType }) {
 
     try {
         const user = await getUserFromCookies()
@@ -79,7 +79,7 @@ export async function updateUserRole(_: any, args: { userId: string, role: RoleT
         return true
 
 
-    } catch (err:any) {
+    } catch (err: any) {
         console.log(err.message);
         return false
 
@@ -113,7 +113,7 @@ export async function updateUserProfile(_: any, args: {
             data: data
         })
         return true
-    } catch (err:any) {
+    } catch (err: any) {
         console.log(err.message);
         return false
 
@@ -123,18 +123,44 @@ export async function updateUserProfile(_: any, args: {
 
 }
 
-export async function getAllUsers(){
-    
-    try{
-        const users=await prismaClient.user.findMany({
-            where:{
-                role:{
-                    not:"admin"
+export async function getAllUsers() {
+
+    try {
+        const users = await prismaClient.user.findMany({
+            where: {
+                role: {
+                    not: "admin"
                 }
             }
         })
         return users
-    }catch(err){
+    } catch (err) {
         return null
     }
+}
+
+export async function getUser(_: any, args: { id: string }) {
+    const userId = args.id
+    try {
+
+        const user = await prismaClient.user.findUnique({
+            where: {
+                id: userId
+            }, omit: { password: true }
+
+        })
+        console.log(user);
+
+
+        if (user) return user
+
+        return null
+    }
+    catch (err: any) {
+        console.log(err.message);
+        return null
+
+    }
+
+
 }

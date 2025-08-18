@@ -3,8 +3,9 @@ import gqlClient from "@/lib/services/gql";
 import { ProductWithSale } from "@/lib/types";
 import { Card } from "@radix-ui/themes";
 import { useState } from "react";
-import { Product } from "../../generated/prisma";
-import CallOutMessage from "./reuseable-componets/call-out";
+import { Product } from "../../../generated/prisma";
+import CallOutMessage from "../reuseable-componets/call-out";
+
 // import { useToast } from "./reuseable-componets/toast";
 
 export default function AddSaleButton({ product }: { product: Product | ProductWithSale }) {

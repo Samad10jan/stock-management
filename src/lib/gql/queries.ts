@@ -17,6 +17,19 @@ query GetAllUsers {
   }
 }
 `
+export const GET_USER =gql`
+query GetUser($getUserId: String) {
+  getUser(id: $getUserId) {
+    id
+    name
+    email
+    username
+    avatar
+    role
+  }
+}
+`
+
 
 export const GET_All_PROD =gql`
 query GetAllPorducts {
