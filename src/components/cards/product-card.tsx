@@ -8,22 +8,25 @@ import { ProductWithSale } from "@/lib/types";
 export default function ProductCard({ product, loading }: { product: ProductWithSale | Product, loading: boolean }) {
     return (
         <Skeleton loading={loading} >
-            <div className="w-90 h-[550px]"> {/* Fixed width & height */}
+            <div className="w-90 max-h-max "> {/* Fixed width & height */}
 
-                <Card className="p-4 h-full flex flex-col">
+                <Card className="p-4 min-h-[390px] flex flex-col">
 
                     {product?.imageUrl && (
-                        <div className="mb-3 flex items-center justify-center overflow-hidden rounded-md bg-gray-50 h-[352px]">
-                            <Image
-                                src={product?.imageUrl}
-                                alt={product?.title}
-                                width={300}
-                                height={192}
-                                className="object-contain w-full h-full"
-                                onError={(e) => {
-                                    (e.target as HTMLImageElement).style.display = "none";
-                                }}
-                            />
+                        <div className="mb-3 flex items-center justify-center overflow-hidden rounded-md bg-gray-50 ">
+                            <div className=" h-50">
+
+                                <Image
+                                    src={product?.imageUrl}
+                                    alt={product?.title}
+                                    width={300}
+                                    height={192}
+                                    className="object-contain w-full h-full"
+                                    onError={(e) => {
+                                        (e.target as HTMLImageElement).style.display = "none";
+                                    }}
+                                />
+                            </div>
                         </div>
                     )}
 
@@ -60,7 +63,7 @@ export default function ProductCard({ product, loading }: { product: ProductWith
                             </Flex>
 
 
-{/* 
+                            {/* 
                             <Flex gap="2">
                                 <Button size="2" style={{ flex: 1 }}>
                                     Edit
@@ -74,8 +77,8 @@ export default function ProductCard({ product, loading }: { product: ProductWith
                         }
                     </Flex>
                 </Card>
-       
-        </div >
-         </Skeleton>
+
+            </div >
+        </Skeleton>
     );
 }
