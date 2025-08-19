@@ -118,12 +118,13 @@ export default function Login() {
                             Use these credentials to test different roles:
                         </Text>
 
-                        <Box>
-                            <Table.Root size="1">
+                        <Box >
+                            <Table.Root size="2">
                                 <Table.Header>
                                     <Table.Row>
                                         <Table.ColumnHeaderCell>Role</Table.ColumnHeaderCell>
                                         <Table.ColumnHeaderCell>Username</Table.ColumnHeaderCell>
+                                        <Table.ColumnHeaderCell>Email</Table.ColumnHeaderCell>
                                         <Table.ColumnHeaderCell>Password</Table.ColumnHeaderCell>
                                     </Table.Row>
                                 </Table.Header>
@@ -131,16 +132,19 @@ export default function Login() {
                                     <Table.Row>
                                         <Table.RowHeaderCell>Admin</Table.RowHeaderCell>
                                         <Table.Cell>abd_samad</Table.Cell>
+                                        <Table.Cell>abdulsamad@gmail.com</Table.Cell>
                                         <Table.Cell>12345</Table.Cell>
                                     </Table.Row>
                                     <Table.Row>
                                         <Table.RowHeaderCell>Manager</Table.RowHeaderCell>
                                         <Table.Cell>abd_sam</Table.Cell>
+                                        <Table.Cell>abdulsamad10jan@gmail.com</Table.Cell>
                                         <Table.Cell>121231231</Table.Cell>
                                     </Table.Row>
                                     <Table.Row>
                                         <Table.RowHeaderCell>Staff</Table.RowHeaderCell>
                                         <Table.Cell>abd_sa</Table.Cell>
+                                        <Table.Cell>abd@gmail.com</Table.Cell>
                                         <Table.Cell>312312</Table.Cell>
                                     </Table.Row>
                                 </Table.Body>
