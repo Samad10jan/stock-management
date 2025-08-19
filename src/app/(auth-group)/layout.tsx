@@ -21,12 +21,9 @@ export default async function Layout({ children }: {
                 <link rel="icon" href="/favicon.ico" />
             </Head>
 
-
-
             <UserProvider user={user} >
                 <Header />
                 
-
                     {children}
                 
             </UserProvider>
