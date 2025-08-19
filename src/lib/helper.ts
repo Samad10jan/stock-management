@@ -7,27 +7,30 @@ export default async function getUserFromCookies() {
 
         const cookiesStore = await cookies();
         const token = cookiesStore.get("token")?.value
-        
-        
+
+
         if (!token) {
             return null
         }
-        const data= verifyToken(token)
-        
-        
-        if(!data) return null
-        
+        const data = verifyToken(token)
+
+
+        if (!data) return null
+
         const user = await prismaClient.user.findUnique({
-            where:{
-                id:data.id
+            where: {
+                id: data.id
             },
-            omit:{
-                password:true
+            omit: {
+                password: true
             }
         })
-       
-        
-        if(!user) return null;
+
+
+        if (!user) return null;
+
+        console.log(user);
+
 
         return user
 
