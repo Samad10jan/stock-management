@@ -4,7 +4,7 @@
 import CallOut from "@/components/reuseable-componets/call-out";
 import { LOGIN_USER } from "@/lib/gql/queries";
 import gqlClient from "@/lib/services/gql";
-import { Button, Card, Heading, Text, TextField } from "@radix-ui/themes";
+import { Box, Button, Card, Flex, Heading, Separator, Table, Text, TextField } from "@radix-ui/themes";
 import Image from "next/image";
 import { useState } from "react";
 
@@ -60,7 +60,7 @@ export default function Login() {
 
     return (
         <main>
-            <div className="h-screen flex justify-center items-center ">
+            <div className="h-screen flex gap-5 justify-center items-center ">
 
 
                 <Card style={{
@@ -103,6 +103,50 @@ export default function Login() {
                     }
 
 
+                </Card>
+
+                <Card className="p-6 w-full max-w-sm">
+                    <Flex direction="column" gap="3">
+                        <Heading size="4" align="center">
+                            Demo Credentials
+                        </Heading>
+                        <Text size="2" color="gray" align="center">
+                            Use these credentials to test different roles:
+                        </Text>
+
+                        <Box>
+                            <Table.Root size="1">
+                                <Table.Header>
+                                    <Table.Row>
+                                        <Table.ColumnHeaderCell>Role</Table.ColumnHeaderCell>
+                                        <Table.ColumnHeaderCell>Username</Table.ColumnHeaderCell>
+                                        <Table.ColumnHeaderCell>Password</Table.ColumnHeaderCell>
+                                    </Table.Row>
+                                </Table.Header>
+                                <Table.Body>
+                                    <Table.Row>
+                                        <Table.RowHeaderCell>Admin</Table.RowHeaderCell>
+                                        <Table.Cell>abd_samad</Table.Cell>
+                                        <Table.Cell>12345</Table.Cell>
+                                    </Table.Row>
+                                    <Table.Row>
+                                        <Table.RowHeaderCell>Manager</Table.RowHeaderCell>
+                                        <Table.Cell>abd_sam</Table.Cell>
+                                        <Table.Cell>121231231</Table.Cell>
+                                    </Table.Row>
+                                    <Table.Row>
+                                        <Table.RowHeaderCell>Staff</Table.RowHeaderCell>
+                                        <Table.Cell>abd_sa</Table.Cell>
+                                        <Table.Cell>312312</Table.Cell>
+                                    </Table.Row>
+                                </Table.Body>
+                            </Table.Root>
+                        </Box>
+
+                        <Text size="1" color="gray" align="center">
+                            💡 You can use either email or username to login
+                        </Text>
+                    </Flex>
                 </Card>
 
             </div>
