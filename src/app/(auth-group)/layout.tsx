@@ -8,8 +8,10 @@ import { ReactNode } from "react";
 export default async function Layout({ children }: {
     children: ReactNode
 }) {
+
     const user = await getUserFromCookies();
-    // console.log("layout:",user);
+
+    console.log("layout:",user);
 
     if (!user) redirect("/login")
 

@@ -32,13 +32,12 @@ export default function Login() {
 
             })
             if (user.loginUser) {
-                // const url=process.env.NEXT_PUBLIC_HOST_URL
+               
                 console.log("Login Success");
                 
 
-               window.location.href = "/"; // Redirect to home page
-                router.push("/")
-                setLoading(true)
+               window.location.href = "/"; 
+               
 
             }
             else {
