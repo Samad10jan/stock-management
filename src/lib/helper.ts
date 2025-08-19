@@ -7,13 +7,13 @@ export default async function getUserFromCookies() {
 
         const cookiesStore = await cookies();
         const token = cookiesStore.get("token")?.value
-        // console.log(token);
+        
         
         if (!token) {
             return null
         }
         const data= verifyToken(token)
-        // console.log("data",data?.id);
+        
         
         if(!data) return null
         
@@ -25,7 +25,7 @@ export default async function getUserFromCookies() {
                 password:true
             }
         })
-        // console.log(user);
+       
         
         if(!user) return null;
 

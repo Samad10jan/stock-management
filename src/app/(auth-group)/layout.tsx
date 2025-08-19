@@ -11,7 +11,7 @@ export default async function Layout({ children }: {
     const user = await getUserFromCookies();
     // console.log("layout:",user);
 
-    if (!user) redirect("/login")
+    if (!user) redirect(process.env.NEXT_PUBLIC_HOST_URL+"/login")
 
     return (
         <>

@@ -1,4 +1,4 @@
-// "use client"
+
 import AddProductsButton from "@/components/admin-components/add-products-btn";
 import AdminDashBoard from "@/components/admin-components/admin-dashbord";
 import HeroSection from "@/components/homepage/hero-section";
