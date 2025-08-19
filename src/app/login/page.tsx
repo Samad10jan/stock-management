@@ -1,11 +1,11 @@
 "use client"
 
-
 import CallOut from "@/components/reuseable-componets/call-out";
 import { LOGIN_USER } from "@/lib/gql/queries";
 import gqlClient from "@/lib/services/gql";
-import { Box, Button, Card, Flex, Heading, Separator, Table, Text, TextField } from "@radix-ui/themes";
+import { Box, Button, Card, Flex, Heading, Table, Text, TextField } from "@radix-ui/themes";
 import Image from "next/image";
+import { useRouter } from "next/navigation";
 import { useState } from "react";
 
 export default function Login() {
@@ -17,6 +17,7 @@ export default function Login() {
     }>({})
 
     const [loading, setLoading] = useState(false)
+    const router=useRouter()
 
     async function handelLogin() {
         setError({})
@@ -32,7 +33,8 @@ export default function Login() {
             })
             if (user.loginUser) {
 
-                window.location.href = "/"
+                // window.location.href = "/"
+                router.push("/")
                 setLoading(true)
 
             }
