@@ -33,8 +33,8 @@ export default function Login() {
             })
             if (user.loginUser) {
 
-                // window.location.href = "/"
-                router.push("/")
+               
+                router.push("https://stock-management-sigma-sepia.vercel.app/")
                 setLoading(true)
 
             }
