@@ -28,7 +28,11 @@ export async function addProducts(_: any, args:
 
 export async function getAllPorducts() {
     try {
-        const products = await prismaClient.product.findMany()
+        const products = await prismaClient.product.findMany({
+            include:{
+                sales:true
+            }
+        })
 
         return products
     } catch (error) {
@@ -53,7 +57,7 @@ export async function getProduct(_:any,args:{id:string}) {
                 }
             }
         })
-    // console.log(product?.sales);
+    
     
         
         if(product) return product
@@ -70,7 +74,7 @@ export async function getProduct(_:any,args:{id:string}) {
 export async function createSale(_:any,args:{id:string,quantity:number}) {
     const id= args.id
     const quantity= args.quantity 
-    console.log(quantity);
+   
     
     try {
         // create sale
@@ -82,8 +86,7 @@ export async function createSale(_:any,args:{id:string,quantity:number}) {
             }
         })
 
-        // id sale created decrease stock
-        // if return sale ,i.e data created then update in product:- stock decrement by given quantity
+       
         if(sale){
             await prismaClient.product.update({
                 where:{

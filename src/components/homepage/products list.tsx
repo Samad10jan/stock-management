@@ -1,19 +1,19 @@
 "use client"
 import { GET_All_PROD } from "@/lib/gql/queries";
 import gqlClient from "@/lib/services/gql";
-import { useEffect, useState } from "react"
-import { Product } from "../../../generated/prisma";
-import ProductCard from "../cards/product-card";
-import Link from "next/link";
 import { ProductWithSale } from "@/lib/types";
+import Link from "next/link";
+import { useEffect, useState } from "react";
+import ProductCard from "../cards/product-card";
 
-export default function ProductList({loading}:{loading:boolean}){
+export default function ProductList(){
    const [products,setProducts]= useState<ProductWithSale[]>([])
+   const [loading,setLoading] =useState(true)
   useEffect(() => {
           async function getAllProducts() {
   
               const data :{getAllPorducts:ProductWithSale[]}= await gqlClient.request(GET_All_PROD);
-            //   console.log(data);
+            
               
               const products = data?.getAllPorducts || []
               setProducts(products)
@@ -21,6 +21,7 @@ export default function ProductList({loading}:{loading:boolean}){
   
           }
           getAllProducts()
+          setLoading(false)
       }, [])
 
     return(

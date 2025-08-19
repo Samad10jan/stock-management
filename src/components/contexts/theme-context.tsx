@@ -3,12 +3,11 @@
 import { Theme } from "@radix-ui/themes";
 import { createContext, ReactNode, useState } from "react"
 export const ThemeContext = createContext<{
-    isDark:boolean,
-    setIsDark:((x:boolean)=>void)|null
+    isDark: boolean;
+    setIsDark: (x: boolean) => void;
 }>({
-    isDark:true,
-    setIsDark:null
-
+    isDark: true,
+    setIsDark: () => {} 
 });
 
 export default function ThemeProvider({ children }:{

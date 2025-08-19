@@ -14,10 +14,8 @@ export default function DropMenu() {
                 <DropdownMenu.Content>
                    <Link href={"/profile"}> <DropdownMenu.Item>My Profile</DropdownMenu.Item></Link>
                     <DropdownMenu.Separator />
-                    <DropdownMenu.Item>Share</DropdownMenu.Item>
-                    <DropdownMenu.Item>Add to favorites</DropdownMenu.Item>
-                    <DropdownMenu.Separator />
-                    <DropdownMenu.Item shortcut="⌘ ⌫" color="red">
+                  
+                   <DropdownMenu.Item shortcut="⌘ ⌫" color="red">
                         Log Out
                     </DropdownMenu.Item>
                 </DropdownMenu.Content>

@@ -5,7 +5,7 @@ export const LOGIN_USER = gql`
   loginUser(userCred: $userCred, password: $password)
 }`
 
-export const GET_All_USER =gql`
+export const GET_All_USER = gql`
 query GetAllUsers {
   getAllUsers {
     id
@@ -17,7 +17,7 @@ query GetAllUsers {
   }
 }
 `
-export const GET_USER =gql`
+export const GET_USER = gql`
 query GetUser($getUserId: String) {
   getUser(id: $getUserId) {
     id
@@ -31,7 +31,7 @@ query GetUser($getUserId: String) {
 `
 
 
-export const GET_All_PROD =gql`
+export const GET_All_PROD = gql`
 query GetAllPorducts {
   getAllPorducts {
     id
@@ -41,10 +41,16 @@ query GetAllPorducts {
     price
     stock
     imageUrl
+    sales {
+      id
+      productId
+      quantity
+      createdAt
+    }
   }
 }`
 
-export const GET_PROD=gql`
+export const GET_PROD = gql`
 query GetProduct($getProductId: String) {
   getProduct(id: $getProductId) {
     id

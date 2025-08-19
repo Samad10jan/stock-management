@@ -41,7 +41,7 @@ export default function AddUserButton() {
         <div >
             <Dialog.Root>
                 <Dialog.Trigger>
-                    <Button>Add Memeber</Button>
+                    <Button variant="solid">Add Memeber</Button>
                 </Dialog.Trigger>
 
                 <Dialog.Content maxWidth="450px">

@@ -1,4 +1,5 @@
-import { ADD_PROD, CREATE_USER } from "@/lib/gql/mutation";
+"use client"
+import { ADD_PROD } from "@/lib/gql/mutation";
 import gqlClient from "@/lib/services/gql";
 import { Button, Dialog, Flex, Select, Text, TextField } from "@radix-ui/themes";
 
@@ -22,7 +23,7 @@ export default function AddProductsButton() {
 
                 
             })
-            // console.log("data cretae",data);
+           
             
             if(data.addProducts){
                 alert("added")

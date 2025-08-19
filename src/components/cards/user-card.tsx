@@ -12,38 +12,41 @@ export default function UserCard({ user }: {
 
     return (
         <div>
-            <Link href={"userpage/"+user.id}>
-                <Box minWidth="300px" my={"3"}>
 
-                    <Card>
-                        <Flex gap="3" justify={"between"}>
+            <Box minWidth="300px" my={"3"}>
 
-                            <Box> <Avatar
+                <Card>
+                    <Flex gap="3" justify={"between"}>
+
+                        <Box className="flex flex-col ">
+                            <Avatar
                                 size="3"
                                 src={user?.avatar || ""}
                                 radius="full"
                                 fallback={user.name[0]}
                             />
 
-                                <Text as="div" size="2" weight="bold">
-                                    {user.name}
-                                </Text>
+                            <div>
 
-                            </Box>
-                            
-                            <Badge>{user.role}</Badge>
+                                <Badge>{user.role}</Badge>
+                            </div>
 
-                            <Box>
+                        </Box>
 
+                        <Text as="div" size="5" weight="bold">
+                            {user.name}
+                        </Text>
 
-                                {/* <Button>Edit Role </Button>
-                            <Button>User Role</Button> */}
-                            </Box>
-                        </Flex>
-                    </Card>
+                        <Box>
 
-                </Box>
-            </Link>
+                            <Link href={"userpage/" + user.id}>
+                                <Button variant="soft">Details</Button>
+                            </Link>
+                        </Box>
+                    </Flex>
+                </Card>
+
+            </Box>
 
         </div>
     )

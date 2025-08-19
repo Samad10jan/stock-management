@@ -36,3 +36,8 @@ export const EDIT_ROLE = gql`
 mutation Mutation($userId: String, $role: String) {
   updateUserRole(userId: $userId, role: $role)
 }`
+
+export const EDIT_USER_PROFILE=gql`
+mutation Mutation($userId: String!, $name: String!, $email: String!, $username: String!, $avatar: String) {
+  updateUserProfile(userId: $userId, name: $name, email: $email, username: $username, avatar: $avatar)
+}`

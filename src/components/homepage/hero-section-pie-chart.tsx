@@ -153,6 +153,7 @@ export default function PieChartHero() {
         <ResponsiveContainer >
           <PieChart>
             <Pie
+            //@ts-ignore
               activeIndex={activeIndex}
               activeShape={renderActiveShape}
               data={Data}
