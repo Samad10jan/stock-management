@@ -36,7 +36,7 @@ export default function Login() {
                 console.log("Login Success");
                 
 
-               
+               window.location.href = "/"; // Redirect to home page
                 router.push("/")
                 setLoading(true)
 
