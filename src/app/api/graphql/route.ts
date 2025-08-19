@@ -1,17 +1,10 @@
 import { ApolloServer } from "@apollo/server";
 import { startServerAndCreateNextHandler } from "@as-integrations/next";
-import { NextRequest } from "next/server";
 
 import getUserFromCookies from "@/lib/helper";
+import { addProducts, createSale, getAllPorducts, getProduct } from "./resolver-functions/products";
 import { createUser, getAllUsers, getUser, logginUser, updateUserProfile, updateUserRole } from "./resolver-functions/user/resolver";
 import typeDefs from "./typeDefs/typeDefs";
-import { addProducts, createSale, getAllPorducts, getProduct } from "./resolver-functions/products";
-import { Sale } from "../../../../generated/prisma";
-// const typeDefs = gql`
-//   type Query {
-//     hello: String
-//   }
-// `;
 
 const resolvers = {
     Query: {
@@ -38,9 +31,21 @@ const server = new ApolloServer({
     resolvers,
 });
 
-const handler = startServerAndCreateNextHandler<NextRequest>(server, {
-    context: async req => ({ req }),
+// const handler = startServerAndCreateNextHandler<NextRequest>(server, {
+//     context: async req => ({ req }),
+// });
+
+// export { handler as GET, handler as POST };
+
+const handler = startServerAndCreateNextHandler(server, {
+  context: async req => ({ req }),
 });
 
-export { handler as GET, handler as POST };
 
+export async function GET(request: Request) {
+  return handler(request);
+}
+
+export async function POST(request: Request) {
+  return handler(request);
+}
