@@ -33,6 +33,8 @@ export default function Login() {
             })
             if (user.loginUser) {
                 // const url=process.env.NEXT_PUBLIC_HOST_URL
+                console.log("Login Success");
+                
 
                
                 router.push("/")
