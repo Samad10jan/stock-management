@@ -2,10 +2,14 @@
 
 A comprehensive stock management system built with Next.js, featuring role-based access control and real-time analytics for efficient inventory management.
 ### Dashboard View
-<img src="https://github.com/user-attachments/assets/39aab89d-f2b4-455d-bbd9-280b169565f5" alt="Dashboard" width="600"/>
+
+<img alt="Dashboard" width="600" src="https://github.com/user-attachments/assets/435b9701-2b88-4847-aef2-95857354aea0" />
+
 
 ### Login Page with Demo Credentials
-<img src="https://github.com/user-attachments/assets/e32c59f3-5cdd-4604-ab2e-f278bfc4a8c2" alt="Login Page" width="600"/>
+
+<img alt="Login Page" width="600" src="https://github.com/user-attachments/assets/0653fe92-d01f-450f-b235-7fbbfbcda357" />
+
 
 
 
