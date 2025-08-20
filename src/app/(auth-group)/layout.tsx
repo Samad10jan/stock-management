@@ -4,6 +4,7 @@ import getUserFromCookies from "@/lib/helper";
 import Head from "next/head";
 import { redirect } from "next/navigation";
 import { ReactNode } from "react";
+import wait from "wait";
 
 export default async function Layout({ children }: {
     children: ReactNode
@@ -12,8 +13,10 @@ export default async function Layout({ children }: {
     const user = await getUserFromCookies();
 
     console.log("layout:",user);
+    // wait(1000); 
 
     if (!user) redirect("/login")
+        
 
     return (
         <>

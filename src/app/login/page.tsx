@@ -48,8 +48,7 @@ export default function Login() {
 
 
         } catch (err) {
-
-
+            console.log(err);
             setError({
                 message: "SomeThing Went worng try again later"
             })
