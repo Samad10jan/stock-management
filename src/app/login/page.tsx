@@ -3,16 +3,7 @@
 import CallOut from "@/components/reuseable-componets/call-out";
 import { LOGIN_USER } from "@/lib/gql/queries";
 import gqlClient from "@/lib/services/gql";
-import {
-    Box,
-    Button,
-    Card,
-    Flex,
-    Heading,
-    Table,
-    Text,
-    TextField,
-} from "@radix-ui/themes";
+import { Box, Button, Card, Flex, Heading, Table, Text, TextField, } from "@radix-ui/themes";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
@@ -22,7 +13,7 @@ export default function Login() {
     const [password, setPassword] = useState("");
     const [error, setError] = useState<{ message?: string }>({});
     const [loading, setLoading] = useState(false);
-    const router = useRouter();
+    // const router = useRouter();
 
     async function handelLogin() {
         setError({});
@@ -35,6 +26,7 @@ export default function Login() {
 
             if (user.loginUser) {
                 console.log("Login Success");
+                setLoading(true)
                 window.location.href = "/";
             } else {
                 setError({ message: "Unable to Login. Check Your Credentials" });
@@ -59,7 +51,7 @@ export default function Login() {
                         alignItems: "center",
                         padding: "1.5rem",
                         width: "100%",
-                        
+
                         maxWidth: "50%",
                     }}
                 >
@@ -94,7 +86,7 @@ export default function Login() {
 
                     <Button
                         className="w-full"
-                        style={{marginTop:"10px"}}
+                        style={{ marginTop: "10px" }}
                         onClick={handelLogin}
                         disabled={loading}
                     >

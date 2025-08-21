@@ -14,6 +14,8 @@ export default async function Layout({ children }: {
     console.log("layout:",user);
 
     if (!user) redirect("/login")
+    
+    
 
     return (
         <>

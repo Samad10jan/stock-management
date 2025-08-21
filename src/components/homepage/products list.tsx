@@ -6,6 +6,7 @@ import Link from "next/link";
 import { useEffect, useState } from "react";
 import ProductCard from "../cards/product-card";
 import { Skeleton, Spinner } from "@radix-ui/themes";
+import LoadingScreen from "../reuseable-componets/loading-spinner";
 
 export default function ProductList() {
     const [products, setProducts] = useState<ProductWithSale[]>([])
@@ -18,7 +19,6 @@ export default function ProductList() {
 
 
                 const data: { getAllPorducts: ProductWithSale[] } = await gqlClient.request(GET_All_PROD);
-
 
                 const products = data?.getAllPorducts || []
                 setProducts(products)
@@ -35,18 +35,16 @@ export default function ProductList() {
         getAllProducts()
 
     }, [])
+
     if (loading) {
         return (
-            <div className="min-h-90 flex justify-center items-center">
-                <h1>Loading..</h1>
-                <Spinner loading={loading} size={"3"} />
-            </div>
+            <LoadingScreen/>
         )
     }
 
     return (
 
-        <div className="flex flex-wrap justify-center gap-5 min-w-2xl min-h-90">
+        <div className="flex flex-wrap justify-center">
 
 
             {

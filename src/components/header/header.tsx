@@ -16,8 +16,7 @@ export default function Header() {
 
     return (
         <header
-            className={`flex justify-between items-center px-4 py-3 sticky top-0 left-0 right-0 z-50 shadow-sm ${isDark ? "bg-gray-950 text-white" : "bg-white text-black"
-                }`}
+            className={`flex justify-between px-5 items-center py-3 sticky top-0 left-0 right-0 z-50 rounded  ${isDark ? "bg-gray-950 text-white transform shadow-blue-800 shadow-xl/30" : "bg-white text-black" } `}
         >
             <Link href={"/"}>
             
@@ -32,14 +31,14 @@ export default function Header() {
 
             <div className="flex items-center gap-3">
                 <Button
-                    className="transition-all duration-200"
+                   
                     variant="outline"
                     onClick={() => setIsDark(!isDark)}
                 >
                     {isDark ? <Moon /> : <Sun />}
                 </Button>
 
-                <Box className="max-w-[150px] md:max-w-[240px]">
+                <Box className="max-w-[140px] md:max-w-[240px]">
                     <Card className="px-3 py-2">
                         <Flex gap="3" align="center">
                             <Avatar
@@ -47,12 +46,14 @@ export default function Header() {
                                 src={user?.avatar || ""}
                                 radius="full"
                                 fallback={user?.name?.[0] || "U"}
+                                className="md:size-3 size-2"
                             />
-                            <Box className="truncate">
-                                <Text as="div" size="2" weight="bold" className="truncate">
-                                    {user?.name}
+                            <Box className="">
+                                <Text as="div" size="1" weight="bold" className="">
+                                    <h1>{user?.name.split(" ")[0]}</h1>
+                                    <h1 className="md:inline-block hidden">{user?.name.split(" ")[1]}</h1>
                                 </Text>
-                                <Text as="div" size="2" color="gray" className="truncate">
+                                <Text as="div" size="1" color="gray" className="">
                                     {user?.role}
                                 </Text>
                             </Box>

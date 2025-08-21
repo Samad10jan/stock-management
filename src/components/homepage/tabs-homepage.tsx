@@ -1,34 +1,40 @@
 "use client"
-import { Box, Card, Tabs } from "@radix-ui/themes";
-import { useContext } from "react";
+import { Box, Card, Flex, Tabs } from "@radix-ui/themes";
+import { useContext, useState } from "react";
 import AddProductsButton from "../admin-components/add-products-btn";
 import AdminDashBoard from "../admin-components/admin-dashbord";
 import { UserContext } from "../contexts/user-context";
 import ProductList from "./products list";
+import LoadingScreen from "../reuseable-componets/loading-spinner";
 
 export default function TabsHome() {
     const { user } = useContext(UserContext)
-    return (
-        <div>
-            <Tabs.Root defaultValue="products">
-                <Tabs.List>
-                    <Tabs.Trigger value="products">Products</Tabs.Trigger>
-                    {
-                        user?.role === "admin" &&
-                        <Tabs.Trigger value="admin">Admin DashBoard</Tabs.Trigger>
-                    }
 
-                </Tabs.List>
+    // if(!user) return <LoadingScreen/>
+    return (
+
+        <Tabs.Root defaultValue="products">
+            <Tabs.List style={{ alignContent: "center" }} >
+                <Tabs.Trigger value="products">Products</Tabs.Trigger>
+                {
+                    user?.role === "admin" &&
+                    <Tabs.Trigger value="admin">Admin DashBoard</Tabs.Trigger>
+                }
+
+            </Tabs.List>
+            <Flex direction={"column"} justify={"center"} align={"center"}>
 
                 <Box pt="3">
-                    <Tabs.Content value="products" className="flex flex-col">
+                    <Tabs.Content value="products" className=" ">
                         <Card className="w-fit mx-auto p-5 mb-5">
 
                             <AddProductsButton />
                         </Card>
 
+                        <div>
 
-                        <ProductList />
+                            <ProductList />
+                        </div>
 
                     </Tabs.Content>
 
@@ -39,7 +45,8 @@ export default function TabsHome() {
                     </Tabs.Content>
 
                 </Box>
-            </Tabs.Root>
-        </div>
+            </Flex>
+        </Tabs.Root>
+
     )
 }

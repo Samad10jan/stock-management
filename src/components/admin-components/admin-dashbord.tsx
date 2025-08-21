@@ -8,22 +8,16 @@ import { User } from "../../../generated/prisma"
 import UserCard from "../cards/user-card"
 import { UserContext } from "../contexts/user-context"
 import AddUserButton from "./add-user"
+import LoadingScreen from "../reuseable-componets/loading-spinner"
+import CallOutMessage from "../reuseable-componets/call-out"
 
-function LoadingScreen() {
-  return (
-    <div className="min-h-[90vh] flex flex-col justify-center items-center gap-4">
-      <h1 className="text-lg font-medium">Loading...</h1>
-      <Spinner size="3" />
-    </div>
-  )
-}
+
 
 export default function AdminDashBoard() {
   const [users, setUsers] = useState<User[]>([])
   const [loading, setLoading] = useState(true)
   const { user } = useContext(UserContext)
 
-  // restrict non-admins
   if (user?.role !== "admin") return null
 
   useEffect(() => {
@@ -37,6 +31,7 @@ export default function AdminDashBoard() {
       } catch (error) {
         console.error("Error fetching users:", error)
         setUsers([])
+        return <CallOutMessage message={`Error fetching users:",${error} `} />
       } finally {
         setLoading(false)
       }
@@ -47,36 +42,29 @@ export default function AdminDashBoard() {
   if (loading) return <LoadingScreen />
 
   return (
-    <div className="min-h-[90vh] p-6 flex justify-between gap-6">
-    
-      <div className="flex flex-col items-evenly gap-4 grow max-wxl">
+    <div className="flex flex-col gap-6">
 
-        <div className="flex justify-start">
-          <AddUserButton />
-        </div>
-
-       
-        <div className="flex gap-6 align-center ">
-          <Card variant="surface" className="flex-1 p-6 text-center">
-            <Heading>Users</Heading>
-            <div className="mt-4 text-4xl font-bold">{users.length}</div>
-          </Card>
-        </div>
-      </div>
-
-      {/* User List */}
-      <Card className="flex-1 p-6">
-        <Heading className="text-center mb-4">User List</Heading>
-        {users.length > 0 ? (
-          <div className="flex flex-col gap-2 max-h-[400px] overflow-auto">
-            {users.map((u) => (
-              <UserCard key={u.id} user={u} />
-            ))}
-          </div>
-        ) : (
-          <p className="text-center text-gray-500">No users found</p>
-        )}
+      <Card className="w-fit mx-auto p-5 mb-5">
+        <AddUserButton />
       </Card>
+
+      <Card className="*:text-center w-fit p-5 mx-auto">
+        <Heading className="font-extrabold ">Users</Heading>
+        <div className="mt-4 text-4xl font-mono">{users.length}</div>
+      </Card>
+
+
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        {users.length > 0 ? (
+          users.map((u) => (
+            <Card key={u.id} className="p-6">
+              <UserCard user={u} />
+            </Card>
+          ))
+        ) : (
+          <p className="text-center text-gray-500 col-span-full">No users found</p>
+        )}
+      </div>
     </div>
   )
 }
