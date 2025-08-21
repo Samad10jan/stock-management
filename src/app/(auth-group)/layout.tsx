@@ -5,6 +5,7 @@ import LoadingScreen from "@/components/reuseable-componets/loading-spinner";
 import getUserFromCookies from "@/lib/helper";
 import Head from "next/head";
 import { redirect } from "next/navigation";
+import { useRouter } from "next/navigation";
 import { ReactNode, useEffect, useState } from "react";
 
 export default function Layout({ children }: {
@@ -13,6 +14,7 @@ export default function Layout({ children }: {
 
     const [loading, setLoading] = useState(true)
     const [user, setUser] = useState<UserWithoutPassword | null>(null)
+    const router= useRouter()
 
     useEffect(() => {
         async function getUser() {
@@ -24,7 +26,7 @@ export default function Layout({ children }: {
 
                 console.log("layout:", user);
 
-                if (!user) redirect("/login")
+                if (!user) router.push("/login")
                 setUser(user)
                 setLoading(false)
 
