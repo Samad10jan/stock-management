@@ -1,6 +1,8 @@
+"use server"
 import { verifyToken } from "@/lib/services/jwt";
 import prismaClient from "@/lib/services/prisma";
 import { cookies } from "next/headers";
+import { redirect } from "next/navigation";
 
 export default async function getUserFromCookies() {
     try {
@@ -38,4 +40,10 @@ export default async function getUserFromCookies() {
 
         return null
     }
+}
+
+export async function logOut(){
+    const userCookies=await cookies();
+    userCookies.delete('name')
+    redirect("/login")
 }

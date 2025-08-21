@@ -52,7 +52,7 @@ export default function Login() {
                         padding: "1.5rem",
                         width: "100%",
 
-                        maxWidth: "50%",
+                        minWidth: "70%",
                     }}
                 >
                     <Heading align="center" className="mb-4">
