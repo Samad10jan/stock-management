@@ -14,7 +14,7 @@ export default function Layout({ children }: {
 
     const [loading, setLoading] = useState(true)
     const [user, setUser] = useState<UserWithoutPassword | null>(null)
-    const router= useRouter()
+    const router = useRouter()
 
     useEffect(() => {
         async function getUser() {
@@ -26,7 +26,7 @@ export default function Layout({ children }: {
 
                 console.log("layout:", user);
 
-                if (!user) router.push("/login")
+                // if (!user) router.push("/login")
                 setUser(user)
                 setLoading(false)
 
@@ -42,8 +42,9 @@ export default function Layout({ children }: {
 
 
 
-
+    if (!user) router.push("/login")
     if (loading) return <LoadingScreen />
+
 
 
     return (
