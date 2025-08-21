@@ -17,6 +17,7 @@ export default async function getUserFromCookies() {
             return null
         }
         const data = verifyToken(token)
+         console.log("totken verify:",data);
 
 
         if (!data) return null
@@ -29,6 +30,8 @@ export default async function getUserFromCookies() {
                 password: true
             }
         })
+        console.log("user:",user);
+        
 
 
         if (!user) return null;
