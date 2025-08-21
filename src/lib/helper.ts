@@ -29,7 +29,7 @@ export default async function getUserFromCookies() {
 
         if (!user) return null;
 
-        // console.log(user);
+        console.log(user);
 
 
         return user

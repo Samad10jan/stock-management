@@ -99,7 +99,7 @@ export default function PieChartHero() {
     async function getProduct() {
       try {
         const data: { getAllPorducts: Product[] } = await gqlClient.request(GET_All_PROD);
-        // console.log(data.getAllPorducts);
+        console.log(data.getAllPorducts);
 
         if (data.getAllPorducts) {
           setProducts(data.getAllPorducts);
@@ -113,7 +113,7 @@ export default function PieChartHero() {
     getProduct();
   }, []);
 
-  // console.log("productsales :", products);
+  console.log("productsales :", products);
 
   const Data = products?.map((p) => {
     return {

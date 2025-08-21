@@ -3,112 +3,113 @@
 import CallOut from "@/components/reuseable-componets/call-out";
 import { LOGIN_USER } from "@/lib/gql/queries";
 import gqlClient from "@/lib/services/gql";
-import { Box, Button, Card, Flex, Heading, Table, Text, TextField } from "@radix-ui/themes";
+import {
+    Box,
+    Button,
+    Card,
+    Flex,
+    Heading,
+    Table,
+    Text,
+    TextField,
+} from "@radix-ui/themes";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 
 export default function Login() {
-    const [userCred, setUserCred] = useState("")
-    const [password, setPassword] = useState("")
-
-    const [error, setError] = useState<{
-        message?: string | undefined
-    }>({})
-
-    const [loading, setLoading] = useState(false)
-    const router=useRouter()
+    const [userCred, setUserCred] = useState("");
+    const [password, setPassword] = useState("");
+    const [error, setError] = useState<{ message?: string }>({});
+    const [loading, setLoading] = useState(false);
+    const router = useRouter();
 
     async function handelLogin() {
-        setError({})
-        setLoading(true)
+        setError({});
+        setLoading(true);
         try {
-
-            const user: {
-                loginUser: boolean
-            } = await gqlClient.request(LOGIN_USER, {
+            const user: { loginUser: boolean } = await gqlClient.request(LOGIN_USER, {
                 userCred,
-                password
+                password,
+            });
 
-            })
             if (user.loginUser) {
-               
                 console.log("Login Success");
-                
-
-               window.location.href = "/"; 
-               
-
+                window.location.href = "/";
+            } else {
+                setError({ message: "Unable to Login. Check Your Credentials" });
             }
-            else {
-
-                setError({ message: "Unable to Login Check Your Credentials" })
-
-            }
-
-
         } catch (err) {
-            console.log(err);
             setError({
-                message: "SomeThing Went worng try again later"
-            })
-
-
+                message: "Something went wrong, try again later",
+            });
         } finally {
-            setLoading(false)
+            setLoading(false);
         }
-
-
     }
 
     return (
-        <main>
-            <div className="h-screen flex gap-5 justify-center items-center ">
+        <main className="min-h-screen flex items-center justify-center px-4 py-8">
+            <div className="flex flex-col md:flex-row gap-6 w-full max-w-5xl items-center md:items-start">
 
-
-                <Card style={{
-                    display: "flex",
-                    flexDirection: "column",
-                    alignItems: "center"
-
-
-                }}>
-                    <Heading align={"center"} style={{
-                        margin: "20px 0",
-
-                    }}>Product Stock Management</Heading>
+                <Card
+                    style={{
+                        display: "flex",
+                        flexDirection: "column",
+                        alignItems: "center",
+                        padding: "1.5rem",
+                        width: "100%",
+                        
+                        maxWidth: "50%",
+                    }}
+                >
+                    <Heading align="center" className="mb-4">
+                        Product Stock Management
+                    </Heading>
 
                     <div className="relative h-16 w-16 rounded-full my-5">
-                        <Image src={"https://cdn-icons-png.flaticon.com/512/12474/12474329.png"} alt="Store Management" fill />
+                        <Image
+                            src="https://cdn-icons-png.flaticon.com/512/12474/12474329.png"
+                            alt="Store Management"
+                            fill
+                            loading="lazy"
+                        />
                     </div>
-                    <TextField.Root style={{
-                        height: 36
-                    }} className="w-96 mb-5" placeholder="username or email " type="text" value={userCred} onChange={(e) => { setUserCred(e.target.value) }} />
-                    <TextField.Root style={{
-                        height: 36
-                    }} className="w-96" placeholder="password" type="password" value={password} onChange={(e) => { setPassword(e.target.value) }} />
 
+                    <TextField.Root
+                        className="w-full mb-4"
+                        placeholder="Username or email"
+                        type="text"
+                        value={userCred}
+                        onChange={(e) => setUserCred(e.target.value)}
+                    />
 
+                    <TextField.Root
+                        className="w-full"
+                        placeholder="Password"
+                        type="password"
+                        value={password}
+                        onChange={(e) => setPassword(e.target.value)}
+                    />
 
-                    <Button style={{
-                        width: "100%",
-                        margin: "20px 0"
-                    }} onClick={handelLogin} disabled={loading}>
-                        <Text>
-                            Login
-                        </Text>
+                    <Button
+                        className="w-full"
+                        style={{marginTop:"10px"}}
+                        onClick={handelLogin}
+                        disabled={loading}
+                    >
+                        <Text>Login</Text>
                     </Button>
-                    {(Object.keys(error).length) > 0 &&
 
-                        <div>
-                            <CallOut message={error.message as string} />
+                    {error.message && (
+                        <div className="mt-4 w-full">
+                            <CallOut message={error.message} />
                         </div>
-                    }
-
-
+                    )}
                 </Card>
 
-                <Card className="p-6 w-full max-w-sm">
+
+                <Card className="p-6 w-full md:w-1/2 overflow-x-auto">
                     <Flex direction="column" gap="3">
                         <Heading size="4" align="center">
                             Demo Credentials
@@ -117,7 +118,7 @@ export default function Login() {
                             Use these credentials to test different roles:
                         </Text>
 
-                        <Box >
+                        <Box>
                             <Table.Root size="2">
                                 <Table.Header>
                                     <Table.Row>
@@ -155,8 +156,7 @@ export default function Login() {
                         </Text>
                     </Flex>
                 </Card>
-
             </div>
         </main>
-    )
+    );
 }
