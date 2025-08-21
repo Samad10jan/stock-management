@@ -9,6 +9,8 @@ export default async function getUserFromCookies() {
 
         const cookiesStore = await cookies();
         const token = cookiesStore.get("token")?.value
+        console.log("totken:",token);
+        
 
 
         if (!token) {
@@ -31,7 +33,7 @@ export default async function getUserFromCookies() {
 
         if (!user) return null;
 
-        console.log(user);
+        console.log("user",user);
 
 
         return user

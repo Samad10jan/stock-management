@@ -1,48 +1,19 @@
-"use client"
-import UserProvider, { UserWithoutPassword } from "@/components/contexts/user-context";
+import UserProvider from "@/components/contexts/user-context";
 import Header from "@/components/header/header";
-import LoadingScreen from "@/components/reuseable-componets/loading-spinner";
 import getUserFromCookies from "@/lib/helper";
 import Head from "next/head";
 import { redirect } from "next/navigation";
-import { useRouter } from "next/navigation";
-import { ReactNode, useEffect, useState } from "react";
+import { ReactNode } from "react";
 
-export default function Layout({ children }: {
+export default async function Layout({ children }: {
     children: ReactNode
 }) {
 
-    const [loading, setLoading] = useState(true)
-    const [user, setUser] = useState<UserWithoutPassword | null>(null)
-   
+    const user = await getUserFromCookies();
 
-    useEffect(() => {
-        async function getUser() {
+    console.log("layout:",user);
 
-
-            
-
-                const user = await getUserFromCookies();
-
-                console.log("layout:", user);
-
-                if (!user) redirect("/login")
-                setUser(user)
-                setLoading(false)
-
-            
-        }
-        getUser()
-
-
-    }, [])
-
-
-
-   
-    if (loading) return <LoadingScreen />
-
-
+    if (!user) redirect("/login")
 
     return (
         <>
@@ -52,9 +23,9 @@ export default function Layout({ children }: {
 
             <UserProvider user={user} >
                 <Header />
-
-                {children}
-
+                
+                    {children}
+                
             </UserProvider>
         </>
     )
