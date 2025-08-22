@@ -9,7 +9,7 @@ export default async function getUserFromCookies() {
 
         const cookiesStore = await cookies();
         const token = cookiesStore.get("token")?.value
-        console.log("totken:",token);
+        console.log("token:",token);
         
 
 
@@ -21,6 +21,7 @@ export default async function getUserFromCookies() {
 
 
         if (!data) return null
+        
 
         const user = await prismaClient.user.findUnique({
             where: {
@@ -30,9 +31,9 @@ export default async function getUserFromCookies() {
                 password: true
             }
         })
+
         console.log("user:",user);
         
-
 
         if (!user) return null;
 
@@ -41,8 +42,9 @@ export default async function getUserFromCookies() {
 
         return user
 
-    } catch (err) {
-
+    } catch (err:any) {
+        console.log("Error:",err.message);
+        
         return null
     }
 }
