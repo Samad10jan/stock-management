@@ -1,0 +1,10 @@
+{
+  "functions": {
+    "pages/api/**/*.js": {
+      "includeFiles": "prisma/**"
+    },
+    "app/api/**/*.js": {
+      "includeFiles": "prisma/**"
+    }
+  }
+}
