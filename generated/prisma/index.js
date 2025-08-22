@@ -166,10 +166,6 @@ const config = {
         "fromEnvVar": null,
         "value": "windows",
         "native": true
-      },
-      {
-        "fromEnvVar": null,
-        "value": "rhel-openssl-3.0.x"
       }
     ],
     "previewFeatures": [],
@@ -196,8 +192,8 @@ const config = {
       }
     }
   },
-  "inlineSchema": "// This is your Prisma schema file,\n// learn more about it in the docs: https://pris.ly/d/prisma-schema\n\n// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?\n// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init\n\ngenerator client {\n  provider      = \"prisma-client-js\"\n  output        = \"../generated/prisma\"\n  binaryTargets = [\"native\", \"rhel-openssl-3.0.x\"]\n}\n\ndatasource db {\n  provider = \"mongodb\"\n  url      = env(\"DATABASE_URL\")\n}\n\nmodel User {\n  id       String   @id @default(auto()) @map(\"_id\") @db.ObjectId\n  name     String\n  email    String   @unique\n  username String   @unique\n  password String\n  avatar   String?\n  role     RoleType @default(staff)\n}\n\nmodel Product {\n  id          String          @id @default(auto()) @map(\"_id\") @db.ObjectId\n  title       String\n  description String\n  category    ProductCategory @default(others)\n  price       Float\n  stock       Int\n  imageUrl    String\n  sales       Sale[]\n}\n\nmodel Sale {\n  id        String   @id @default(auto()) @map(\"_id\") @db.ObjectId\n  productId String   @db.ObjectId\n  product   Product  @relation(fields: [productId], references: [id])\n  quantity  Int      @default(1)\n  createdAt DateTime @default(now())\n}\n\nenum RoleType {\n  admin\n  manager\n  staff\n}\n\nenum ProductCategory {\n  electronics\n  beauty\n  food\n  accessories\n  clothing\n  furniture\n  decor\n  others\n}\n",
-  "inlineSchemaHash": "a66dcd4ff4873d0a4208a1864f24bd276b0e7e3d788754657882a46d1fcd1680",
+  "inlineSchema": "// This is your Prisma schema file,\n// learn more about it in the docs: https://pris.ly/d/prisma-schema\n\n// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?\n// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init\n\ngenerator client {\n  provider = \"prisma-client-js\"\n  output   = \"../generated/prisma\"\n}\n\ndatasource db {\n  provider = \"mongodb\"\n  url      = env(\"DATABASE_URL\")\n}\n\nmodel User {\n  id       String   @id @default(auto()) @map(\"_id\") @db.ObjectId\n  name     String\n  email    String   @unique\n  username String   @unique\n  password String\n  avatar   String?\n  role     RoleType @default(staff)\n}\n\nmodel Product {\n  id          String          @id @default(auto()) @map(\"_id\") @db.ObjectId\n  title       String\n  description String\n  category    ProductCategory @default(others)\n  price       Float\n  stock       Int\n  imageUrl    String\n  sales       Sale[]\n}\n\nmodel Sale {\n  id        String   @id @default(auto()) @map(\"_id\") @db.ObjectId\n  productId String   @db.ObjectId\n  product   Product  @relation(fields: [productId], references: [id])\n  quantity  Int      @default(1)\n  createdAt DateTime @default(now())\n}\n\nenum RoleType {\n  admin\n  manager\n  staff\n}\n\nenum ProductCategory {\n  electronics\n  beauty\n  food\n  accessories\n  clothing\n  furniture\n  decor\n  others\n}\n",
+  "inlineSchemaHash": "e8ad9fc7f981e0df6bb7d2a8da002e6c6d991c18280b3cf8c018ae3b670823a7",
   "copyEngine": true
 }
 
@@ -238,10 +234,6 @@ Object.assign(exports, Prisma)
 // file annotations for bundling tools to include these files
 path.join(__dirname, "query_engine-windows.dll.node");
 path.join(process.cwd(), "generated/prisma/query_engine-windows.dll.node")
-
-// file annotations for bundling tools to include these files
-path.join(__dirname, "libquery_engine-rhel-openssl-3.0.x.so.node");
-path.join(process.cwd(), "generated/prisma/libquery_engine-rhel-openssl-3.0.x.so.node")
 // file annotations for bundling tools to include these files
 path.join(__dirname, "schema.prisma");
 path.join(process.cwd(), "generated/prisma/schema.prisma")
