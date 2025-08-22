@@ -23,6 +23,9 @@ A comprehensive stock management system built with Next.js, featuring role-based
 ### 🛒 Product Management
 <img width="1920" height="1020" alt="image" src="https://github.com/user-attachments/assets/d0c55cef-6856-4228-bd0c-863f1f1fcc38" />
 
+### Product Detail Page
+
+<img width="1913" height="961" alt="image" src="https://github.com/user-attachments/assets/8769a598-720a-4253-b683-ade369cbe280" />
 
 ### 👥 Admin Dashboard - User Management
 <img width="1920" height="1020" alt="image" src="https://github.com/user-attachments/assets/00f5cdfe-ccec-42a0-8ffa-c11edf1a0ba8" />
