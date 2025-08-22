@@ -13,7 +13,7 @@ export default async function Layout({ children }: {
 
     const user = await getUserFromCookies();
 
-    console.log("layout:",user);
+    // console.log("layout:",user);
 
     if (!user) redirect("/login")
 

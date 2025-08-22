@@ -25,7 +25,7 @@ export default function HeroSection() {
 
                 setProducts(products)
 
-                
+
                 setProductsCount(products.length)
 
                 // Total stock count
@@ -52,8 +52,6 @@ export default function HeroSection() {
     }, [])
 
 
-
-
     if (loading) {
         return (
             <div className="min-h-90 flex justify-center items-center">
@@ -64,26 +62,29 @@ export default function HeroSection() {
     }
 
     return (
-        <div className="drop-shadow-blue-900 drop-shadow-xl/30">
-            <div className="min-h-80 flex justify-between">
-                <div className="flex flex-col gap-y-2 w-xl m-3">
-                    <Card variant="surface">
-                        <Heading className="py-auto">Products: {productsCount}</Heading>
-                    </Card>
+        <div className="w-full inset-shadow-sm/30 inset-shadow-blue-600 ">
+            <div className="min-h-70 flex justify-evenly p-3">
+                <div className="flex flex-col gap-y-2 w-xl m-3   ">
+                   
 
-                    <Card variant="surface">
-                        <Heading className="py-auto">Stocks: {stockCount}</Heading>
-                    </Card>
+                        <Card  className="ring-1 ring-emerald-600">
+                            <Heading className="py-auto">Products: {productsCount}</Heading>
+                        </Card>
 
-                    <div className="flex justify-around gap-2 *:min-h-50">
-                        <Card variant="surface" className="grow">
+                        <Card  className="ring-1 ring-blue-600 ">
+                            <Heading className="py-auto">Stocks: {stockCount}</Heading>
+                        </Card>
+                  
+
+                    <div className="flex justify-around gap-2 *:min-h-40">
+                        <Card  className="grow ring-1 ring-lime-600">
                             <Heading className="flex flex-col items-center space-y-10">
                                 <div>Sales:</div>
                                 <div className="font-extrabold text-4xl">{salesCount}</div>
                             </Heading>
                         </Card>
 
-                        <Card variant="surface" className="grow">
+                        <Card  className="grow ring-1 ring-amber-600">
                             <Heading className="flex flex-col items-center space-y-10">
                                 <div>Categories:</div>
                                 <div className="font-extrabold text-4xl">{categoryCount}</div>
@@ -91,7 +92,7 @@ export default function HeroSection() {
                         </Card>
                     </div>
                 </div>
-                <Card variant="surface" className="min-w-2xl min-h-64 m-3 grow">
+                <Card variant="surface" className={`size-0 md:w-[40%] md:min-h-[325px] shadow-blue-600 shadow-xl/20 hidden `}>
                     <PieChartHero />
                 </Card>
             </div>

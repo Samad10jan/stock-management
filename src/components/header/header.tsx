@@ -57,7 +57,7 @@ export default function Header() {
                                     {user?.role}
                                 </Text>
                             </Box>
-                            <DropMenu />
+                            <DropMenu/>
                         </Flex>
                     </Card>
                 </Box>

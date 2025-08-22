@@ -1,4 +1,4 @@
-
+"use server"
 import { verifyToken } from "@/lib/services/jwt";
 import prismaClient from "@/lib/services/prisma";
 import { cookies } from "next/headers";
@@ -20,7 +20,7 @@ export default async function getUserFromCookies() {
             return null
         }
         const data = verifyToken(token)
-        console.log("totken verify:", data);
+        // console.log("totken verify:", data);
 
 
         if (!data) return null
@@ -29,6 +29,7 @@ export default async function getUserFromCookies() {
             getUserId: data.id
         })
         const user = userData.getUser
+
         // const user = await prismaClient.user.findUnique({
         //     where: {
         //         id: data.id
@@ -38,12 +39,12 @@ export default async function getUserFromCookies() {
         //     }
         // })
 
-        console.log("user:", user);
+        // console.log("user:", user);
 
 
         if (!user) return null;
 
-        console.log("user", user);
+        // console.log("user", user);
 
 
         return user
@@ -57,6 +58,6 @@ export default async function getUserFromCookies() {
 
 export async function logOut() {
     const userCookies = await cookies();
-    userCookies.delete('name')
+    userCookies.delete('token')
     redirect("/login")
 }

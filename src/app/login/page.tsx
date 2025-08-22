@@ -5,10 +5,10 @@ import { LOGIN_USER } from "@/lib/gql/queries";
 import gqlClient from "@/lib/services/gql";
 import { Box, Button, Card, Flex, Heading, Table, Text, TextField, } from "@radix-ui/themes";
 import Image from "next/image";
-import { useRouter } from "next/navigation";
 import { useState } from "react";
 
 export const dynamic = 'force-dynamic';
+
 export default function Login() {
     const [userCred, setUserCred] = useState("");
     const [password, setPassword] = useState("");

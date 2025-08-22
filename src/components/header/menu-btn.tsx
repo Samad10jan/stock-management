@@ -1,10 +1,11 @@
+import { logOut } from "@/lib/helper";
 import { Button, DropdownMenu } from "@radix-ui/themes";
 import { ChevronDown } from "lucide-react";
 import Link from "next/link";
 
 export default function DropMenu() {
     return (
-        <div   >
+      
             <DropdownMenu.Root >
                 <DropdownMenu.Trigger >
                     <div>
@@ -28,7 +29,7 @@ export default function DropMenu() {
                     <DropdownMenu.Separator />
 
                     <Link href={"/login"}>
-                        <DropdownMenu.Item shortcut="⌘ ⌫" color="red">
+                        <DropdownMenu.Item shortcut="⌘ ⌫" color="red" onClick={()=>logOut()}>
                             Log Out
                         </DropdownMenu.Item>
                     </Link>
@@ -36,7 +37,7 @@ export default function DropMenu() {
             </DropdownMenu.Root>
 
 
-        </div>
+    
 
     )
 }

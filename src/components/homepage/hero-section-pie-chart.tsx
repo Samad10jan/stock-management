@@ -6,6 +6,7 @@ import { useEffect, useState } from "react";
 import { Cell, Pie, PieChart, ResponsiveContainer, Sector } from "recharts";
 import { Product } from "../../../generated/prisma";
 import { Heading, Text } from "@radix-ui/themes";
+import LoadingScreen from "../reuseable-componets/loading-spinner";
 
 const COLORS = [
   "#8884d8",
@@ -44,7 +45,6 @@ export default function PieChartHero() {
 
     return (
       <g>
-
         <text
           x={cx}
           y={cy}
@@ -55,7 +55,6 @@ export default function PieChartHero() {
           fontWeight="bold"
         >
           Stock: {payload.stock}
-
         </text>
 
         <Sector
@@ -99,8 +98,7 @@ export default function PieChartHero() {
     async function getProduct() {
       try {
         const data: { getAllPorducts: Product[] } = await gqlClient.request(GET_All_PROD);
-        // console.log(data.getAllPorducts);
-
+        
         if (data.getAllPorducts) {
           setProducts(data.getAllPorducts);
         }
@@ -112,8 +110,6 @@ export default function PieChartHero() {
     }
     getProduct();
   }, []);
-
-  console.log("productsales :", products);
 
   const Data = products?.map((p) => {
     return {
@@ -128,43 +124,42 @@ export default function PieChartHero() {
 
   if (loading) {
     return (
-      <div className="w-full h-full flex items-center justify-center">
-        <div className="text-center">Loading chart...</div>
+      <div className="hidden md:block">
+        <LoadingScreen />
       </div>
     );
   }
 
   return (
-    <div className="w-full h-full flex rounded-full relative ">
-      
-      <div className="absolute top-0 mb-6">
-        <h2 className="text-4xl font-bold"> <div>
-          <Heading size="4">
-            Stock Distribution
-          </Heading>
-          <Text size="2" color="gray">
-            Visual breakdown of inventory
-          </Text>
-        </div></h2>
+   
+    <div className="hidden md:flex w-full h-full rounded-full relative">
+    
+      <div className="absolute top-0 left-0 z-10">
+        <Heading size={{ initial: "3", md: "4" }} className="mb-1">
+          Stock Distribution
+        </Heading>
+        <Text size={{ initial: "1", md: "2" }} color="gray">
+          Visual breakdown of inventory
+        </Text>
       </div>
 
-
-      <div className="flex flex-col min-h-96 grow  " >
-        <ResponsiveContainer >
+     
+      <div className="flex flex-col items-center w-2xl">
+        <ResponsiveContainer width="90%" height="100%">
           <PieChart>
             <Pie
-            //@ts-ignore
+              //@ts-ignore
               activeIndex={activeIndex}
               activeShape={renderActiveShape}
               data={Data}
-              cx="60%"
-              cy="50%"
-              innerRadius={60}
-              outerRadius={130}
+              cx="50%"
+              cy="55%"
+              innerRadius={40} // Smaller on medium screens
+              outerRadius={80}  // Smaller on medium screens
               fill="#8884d8"
               dataKey="stock"
-              
               onMouseEnter={onPieEnter}
+            
             >
               {Data.map((entry, index) => (
                 <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
