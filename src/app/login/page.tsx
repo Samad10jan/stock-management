@@ -8,6 +8,7 @@ import Image from "next/image";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 
+export const dynamic = 'force-dynamic';
 export default function Login() {
     const [userCred, setUserCred] = useState("");
     const [password, setPassword] = useState("");
