@@ -1,21 +1,37 @@
-# Stock Management Web App
+# 📦 Stock Management Web App
 
 A comprehensive stock management system built with Next.js, featuring role-based access control and real-time analytics for efficient inventory management.
-### Dashboard View
 
-<img alt="Dashboard" width="600" src="https://github.com/user-attachments/assets/435b9701-2b88-4847-aef2-95857354aea0" />
+## 🖼️ Screenshots / Demo
 
-
-### Login Page with Demo Credentials
-
-<img alt="Login Page" width="600" src="https://github.com/user-attachments/assets/0653fe92-d01f-450f-b235-7fbbfbcda357" />
+### 🔑 Login Page
+<img width="1920" height="1020" alt="image" src="https://github.com/user-attachments/assets/b8bf0865-8770-41e7-9ccb-92f932d50702" />
 
 
+### 📊 Dashboard Overview
+<img width="1920" height="1020" alt="image" src="https://github.com/user-attachments/assets/2dfc89cc-eaf3-4e77-bb33-c783c3fe7eec" />
 
 
----
+### 👤 Profile Page
+<img width="1920" height="1020" alt="image" src="https://github.com/user-attachments/assets/33c0ca3d-d3c7-4366-8e35-cbfc80c2e4d5" />
 
-##  Features
+
+### 👨‍💼 User Details Page
+<img width="1920" height="1020" alt="image" src="https://github.com/user-attachments/assets/cbb9d11a-0ea9-4cf4-8d78-45f4ab5c0498" />
+
+
+### 🛒 Product Management
+<img width="1920" height="1020" alt="image" src="https://github.com/user-attachments/assets/d0c55cef-6856-4228-bd0c-863f1f1fcc38" />
+
+### Product Detail Page
+
+<img width="1913" height="961" alt="image" src="https://github.com/user-attachments/assets/8769a598-720a-4253-b683-ade369cbe280" />
+
+### 👥 Admin Dashboard - User Management
+<img width="1920" height="1020" alt="image" src="https://github.com/user-attachments/assets/00f5cdfe-ccec-42a0-8ffa-c11edf1a0ba8" />
+
+
+## ✨ Features
 
 ### Role-Based Access Control
 - **Admin Dashboard** - Full system control with user management capabilities
@@ -35,7 +51,7 @@ A comprehensive stock management system built with Next.js, featuring role-based
 - **Sales Visualization** - Charts showing sales trends over time
 - **Real-time Updates** - Live inventory and sales data
 
-## Tech Stack
+## 🛠️ Tech Stack
 
 - **Framework:** Next.js 14 with App Router
 - **Database:** MongoDB with Prisma ORM
@@ -46,14 +62,14 @@ A comprehensive stock management system built with Next.js, featuring role-based
 - **Charts:** Recharts for data visualization
 - **Styling:** Tailwind CSS
 
-## 📋Prerequisites
+## 📋 Prerequisites
 
 Before you begin, ensure you have:
 - Node.js (version 18 or higher)
 - MongoDB database (local or cloud instance)
 - npm, yarn, pnpm, or bun package manager
 
-##  Getting Started
+## 🚀 Getting Started
 
 1. **Clone the repository**
    ```bash
@@ -67,6 +83,7 @@ Before you begin, ensure you have:
    ```
 
 3. **Set up environment variables**
+   
    Create a `.env.local` file in the root directory:
    ```env
    DATABASE_URL="mongodb://your-mongodb-connection-string"
@@ -78,7 +95,7 @@ Before you begin, ensure you have:
    ```bash
    # Generate Prisma client
    npx prisma generate
-   
+
    # Push database schema
    npx prisma db push
    ```
@@ -89,6 +106,7 @@ Before you begin, ensure you have:
    ```
 
 6. **Access the application**
+   
    Open [http://localhost:3000](http://localhost:3000) in your browser
 
 ## 👥 User Roles & Permissions
@@ -123,7 +141,6 @@ Before you begin, ensure you have:
 2. Click "Add Product" to create new inventory items
 3. Fill in product details (name, price, quantity, etc.)
 
-
 ### Recording Sales
 1. Go to any product page
 2. Click "Add Sale" button
@@ -135,7 +152,7 @@ Before you begin, ensure you have:
 2. View sales charts organized by date
 3. Analyze trends using interactive Recharts visualizations
 
-##  Database Schema
+## 🗄️ Database Schema
 
 The application uses Prisma with MongoDB for:
 - User management and authentication
@@ -143,7 +160,7 @@ The application uses Prisma with MongoDB for:
 - Sales transaction records
 - Role-based access control
 
-##  API
+## 🔗 API
 
 The application uses GraphQL for efficient data operations:
 - User authentication and management
@@ -151,7 +168,7 @@ The application uses GraphQL for efficient data operations:
 - Sales data queries and mutations
 - Real-time updates
 
-##  Security Features
+## 🔒 Security Features
 
 - Custom authentication system
 - Role-based authorization
@@ -167,6 +184,18 @@ The application uses GraphQL for efficient data operations:
 - **Authentication:** Custom implementation
 - **State Management:** React Context API
 
+## 🤝 Contributing
 
+1. Fork the repository
+2. Create your feature branch (`git checkout -b feature/AmazingFeature`)
+3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
+4. Push to the branch (`git push origin feature/AmazingFeature`)
+5. Open a Pull Request
 
-Built using Next.js, MongoDB, and GraphQL
+## 📧 Contact
+
+Project Link: [https://github.com/Samad10jan/stock-managemen](https://github.com/Samad10jan/stock-managemen)
+
+---
+
+⭐ **Built with Next.js, MongoDB, and GraphQL** ⭐
