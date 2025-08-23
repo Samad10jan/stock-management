@@ -3,7 +3,7 @@
 import CallOut from "@/components/reuseable-componets/call-out";
 import { LOGIN_USER } from "@/lib/gql/queries";
 import gqlClient from "@/lib/services/gql";
-import { Box, Button, Card, Flex, Heading, Table, Text, TextField, } from "@radix-ui/themes";
+import { Box, Button, Card, Dialog, Flex, Heading, Text, TextField } from "@radix-ui/themes";
 import Image from "next/image";
 import { useState } from "react";
 
@@ -42,8 +42,8 @@ export default function Login() {
     }
 
     return (
-        <main className="min-h-screen flex items-center justify-center px-4 py-8">
-            <div className="flex flex-col md:flex-row gap-6 w-full max-w-5xl items-center md:items-start">
+        <main className="min-h-screen flex items-center justify-center px-5 py-5">
+            <div className="flex flex-col md:flex-row gap-5 w-full max-w-5xl items-center md:items-start">
 
                 <Card
                     style={{
@@ -66,6 +66,7 @@ export default function Login() {
                             alt="Store Management"
                             fill
                             loading="lazy"
+                            
                         />
                     </div>
 
@@ -102,8 +103,8 @@ export default function Login() {
                 </Card>
 
 
-                <Card className="p-6 w-full md:w-1/2 overflow-x-auto">
-                    <Flex direction="column" gap="3">
+                <Card className="p-6 w-full md:w-1/2 overflow-x-auto ">
+                    <Flex direction="column" gap="3" align={"center"}>
                         <Heading size="4" align="center">
                             Demo Credentials
                         </Heading>
@@ -111,45 +112,62 @@ export default function Login() {
                             Use these credentials to test different roles:
                         </Text>
 
-                        <Box>
-                            <Table.Root size="2">
-                                <Table.Header>
-                                    <Table.Row>
-                                        <Table.ColumnHeaderCell>Role</Table.ColumnHeaderCell>
-                                        <Table.ColumnHeaderCell>Username</Table.ColumnHeaderCell>
-                                        <Table.ColumnHeaderCell>Email</Table.ColumnHeaderCell>
-                                        <Table.ColumnHeaderCell>Password</Table.ColumnHeaderCell>
-                                    </Table.Row>
-                                </Table.Header>
-                                <Table.Body>
-                                    <Table.Row>
-                                        <Table.RowHeaderCell>Admin</Table.RowHeaderCell>
-                                        <Table.Cell>abd_samad</Table.Cell>
-                                        <Table.Cell>abdulsamad@gmail.com</Table.Cell>
-                                        <Table.Cell>12345</Table.Cell>
-                                    </Table.Row>
-                                    <Table.Row>
-                                        <Table.RowHeaderCell>Manager</Table.RowHeaderCell>
-                                        <Table.Cell>abd_sam</Table.Cell>
-                                        <Table.Cell>abdulsamad10jan@gmail.com</Table.Cell>
-                                        <Table.Cell>121231231</Table.Cell>
-                                    </Table.Row>
-                                    <Table.Row>
-                                        <Table.RowHeaderCell>Staff</Table.RowHeaderCell>
-                                        <Table.Cell>abd_sa</Table.Cell>
-                                        <Table.Cell>abd@gmail.com</Table.Cell>
-                                        <Table.Cell>312312</Table.Cell>
-                                    </Table.Row>
-                                </Table.Body>
-                            </Table.Root>
-                        </Box>
+                        <Box className="*:!mx-1 !flex !justify-center *:!text-xs *:md:!text-[15px]">
+                           
+                            <Dialog.Root>
+                                <Dialog.Trigger >
+                                    <Button variant="soft" color="blue">Admin</Button>
+                                </Dialog.Trigger>
+                                <Dialog.Content className="p-6 rounded-lg shadow-lg bg-white w-[300px]">
+                                    <Dialog.Title className="text-lg font-bold mb-2">Admin Credentials</Dialog.Title>
+                                    <Text as="p">Username: <b>abd_samadd</b></Text>
+                                    <Text as="p">Email: <b>ab1245@gmail.com</b></Text>
+                                    <Text as="p">Password: <b>12345</b></Text>
+                                    <Dialog.Close >
+                                        <Button className="mt-4" variant="soft">Close</Button>
+                                    </Dialog.Close>
+                                </Dialog.Content>
+                            </Dialog.Root>
 
-                        <Text size="1" color="gray" align="center">
-                            💡 You can use either email or username to login
-                        </Text>
-                    </Flex>
-                </Card>
-            </div>
-        </main>
+                            
+                            <Dialog.Root>
+                                <Dialog.Trigger >
+                                    <Button variant="soft" color="green">Manager</Button>
+                                </Dialog.Trigger>
+                                <Dialog.Content className="p-6 rounded-lg shadow-lg bg-white w-[300px]">
+                                    <Dialog.Title className="text-lg font-bold mb-2">Manager Credentials</Dialog.Title>
+                                    <Text as="p">Username: <b>abd_sam</b></Text>
+                                    <Text as="p">Email: <b>abdulsamad10jan@gmail.com</b></Text>
+                                    <Text as="p">Password: <b>121231231</b></Text>
+                                    <Dialog.Close >
+                                        <Button className="mt-4" variant="soft">Close</Button>
+                                    </Dialog.Close>
+                                </Dialog.Content>
+                            </Dialog.Root>
+
+                            
+                            <Dialog.Root>
+                                <Dialog.Trigger>
+                                    <Button variant="soft" color="orange">Staff</Button>
+                                </Dialog.Trigger>
+                                <Dialog.Content className="p-6 rounded-lg shadow-lg bg-white w-[300px]">
+                                    <Dialog.Title className="text-lg font-bold mb-2">Staff Credentials</Dialog.Title>
+                                    <Text as="p">Username: <b>raza_123</b></Text>
+                                    <Text as="p">Email: <b>raza@gmail.com</b></Text>
+                                    <Text as="p">Password: <b>678665</b></Text>
+                                    <Dialog.Close>
+                                        <Button className="mt-4" variant="soft">Close</Button>
+                                    </Dialog.Close>
+                                </Dialog.Content>
+                            </Dialog.Root>
+                        
+                    </Box>
+                    <Text size="1" color="gray" align="center">
+                        💡 You can use either email or username to login
+                    </Text>
+                </Flex>
+            </Card>
+        </div>
+        </main >
     );
 }
