@@ -28,11 +28,11 @@ export default function DropMenu() {
                     <Link href={"/profile"}> <DropdownMenu.Item>My Profile</DropdownMenu.Item></Link>
                     <DropdownMenu.Separator />
 
-                    <Link href={"/login"}>
+                  
                         <DropdownMenu.Item shortcut="⌘ ⌫" color="red" onClick={()=>logOut()}>
                             Log Out
                         </DropdownMenu.Item>
-                    </Link>
+                   
                 </DropdownMenu.Content>
             </DropdownMenu.Root>
 
