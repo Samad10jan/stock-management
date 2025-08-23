@@ -40,7 +40,7 @@ export default function UserCard({ user }: {
                         <Box>
 
                             <Link href={"userpage/" + user.id}>
-                                <Button variant="soft">Details</Button>
+                                <Button variant="surface">Details</Button>
                             </Link>
                         </Box>
                     </Flex>

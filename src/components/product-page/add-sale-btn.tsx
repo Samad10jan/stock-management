@@ -6,25 +6,25 @@ import { useState } from "react";
 import { Product } from "../../../generated/prisma";
 import CallOutMessage from "../reuseable-componets/call-out";
 
-// import { useToast } from "./reuseable-componets/toast";
+
 
 export default function AddSaleButton({ product }: { product: Product | ProductWithSale }) {
     const [quantity, setQuantity] = useState<number>(1);
     const [response, setResponse] = useState("")
 
-    // const { showToast, ToastContainer } = useToast();
-    let resp: string = ""
 
+    let resp: string = ""
+    
 
     async function handleSale() {
         setResponse("")
 
         if (product.stock !== undefined && quantity > product.stock) {
-            // alert("Sale value must be less than or equal to current stock");
-            resp = "Sale value must be less than or equal to current stock"
+
+            resp = "To High Sale"
+            setResponse(resp)
             return;
         }
-        console.log(quantity);
 
 
         try {
@@ -34,17 +34,17 @@ export default function AddSaleButton({ product }: { product: Product | ProductW
             });
 
             if (data.createSale) {
-                // alert("Sale created successfully ✅");
-                resp = "Sale created successfully ✅"
-                // showToast("Sale created successfully ✅")
+
+                resp = "Sale ✅"
+
 
 
 
             }
         } catch (err: any) {
             console.error(err);
-            //   alert("Failed to create sale ❌");
-            resp = "Failed to create sale ❌"
+
+            resp = "Failed to Sale ❌"
 
         }
         setResponse(resp)
@@ -53,7 +53,7 @@ export default function AddSaleButton({ product }: { product: Product | ProductW
     return (
         <div>
 
-            <Card   className="w-fit p-3 flex items-center gap-3">
+            <Card className="w-fit p-3 flex items-center gap-3">
                 <input
                     value={quantity}
                     type="number"
@@ -70,10 +70,11 @@ export default function AddSaleButton({ product }: { product: Product | ProductW
                 </button>
 
             </Card>
-            {/* {ToastContainer} */}
-            <div className="fixed bottom-10 right-10">
+
+            <div className="fixed bottom-10 right-15 ">
                 <CallOutMessage message={response} />
             </div>
+
         </div>
 
     );

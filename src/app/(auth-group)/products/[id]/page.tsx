@@ -52,7 +52,7 @@ export default function ProductPage() {
     }) || []
 
   return (
-    <div className="flex flex-col lg:flex-row gap-6 px-4 lg:px-10 py-6">
+    <div className="flex flex-col items-center lg:flex-row gap-6 px-4 lg:px-10 py-6">
       <div className="flex-1">
         <ProductCard product={product as ProductWithSale} loading={loading} />
       </div>
