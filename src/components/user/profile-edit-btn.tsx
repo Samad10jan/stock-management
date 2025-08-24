@@ -42,9 +42,10 @@ export default function EditProfileButton({ user }: {
 
 
 
-        } finally {
+        } 
+        // finally {
 
-        }
+        // }
     }
 
 

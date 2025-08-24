@@ -149,7 +149,7 @@ export async function getUser(_: any, args: { id: string }) {
             }, omit: { password: true }
 
         })
-        console.log(user);
+        // console.log(user);
 
 
         if (user) return user

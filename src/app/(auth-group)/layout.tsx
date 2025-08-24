@@ -1,5 +1,6 @@
 import UserProvider from "@/components/contexts/user-context";
 import Header from "@/components/header/header";
+import LoadingScreen from "@/components/reuseable-componets/loading-spinner";
 import getUserFromCookies from "@/lib/helper";
 import Head from "next/head";
 import { redirect } from "next/navigation";
@@ -12,10 +13,13 @@ export default async function Layout({ children }: {
 }) {
 
     const user = await getUserFromCookies();
+    
 
     // console.log("layout:",user);
 
     if (!user) redirect("/login")
+    
+    if(!user) return <LoadingScreen/>
 
     return (
         <>

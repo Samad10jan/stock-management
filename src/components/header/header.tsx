@@ -11,26 +11,26 @@ import DropMenu from "./menu-btn"
 export default function Header() {
     const { user } = useContext(UserContext)
     const { isDark, setIsDark } = useContext(ThemeContext)
-    const [light, setLight] = useState("/10")
-    useEffect(() => {
+    // const [light, setLight] = useState("/10")
+    // useEffect(() => {
 
-        if (isDark) {
+    //     if (isDark) {
 
-            setTimeout(() => {
-                setLight("/25")
-            }, 5000)
+    //         setTimeout(() => {
+    //             setLight("/25")
+    //         }, 5000)
 
-        } else {
-            setLight("/10")
-        }
-    }, [isDark])
+    //     } else {
+    //         setLight("/10")
+    //     }
+    // }, [isDark])
 
 
 
     return (
         <header
-            className={`flex justify-between items-center px-5 py-3 sticky top-0 left-0 right-0 z-50 rounded  transition-all duration-300  shadow-blue-800${light} ${isDark
-                ? "bg-gray-950/90 text-white border-b shadow-xl border-gray-800"
+            className={`flex justify-between items-center px-5 py-3 sticky top-0 left-0 right-0 z-50 rounded  transition-all duration-300   ${isDark
+                ? "bg-gray-950/90 text-white border-b shadow-xl border-gray-800 shadow-blue-800/25"
                 : "bg-white/90 text-black shadow-lg border-b border-gray-200"
                 }`}
         >
@@ -41,6 +41,7 @@ export default function Header() {
                         src="https://cdn-icons-png.flaticon.com/512/12474/12474329.png"
                         alt="Store Management"
                         fill
+                          sizes="(max-width: 768px) 40px, 48px"
                         className="object-cover"
                     />
                 </div>
@@ -90,6 +91,7 @@ export default function Header() {
                                     src={user?.avatar || ""}
                                     radius="full"
                                     fallback={user?.name?.[0] || "U"}
+                                    sizes="(max-width: 768px) 32px, 48px"
                                     className="md:!size-12 !size-8 ring-2 ring-blue-500/20"
                                 />
 

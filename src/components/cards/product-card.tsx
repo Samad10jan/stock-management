@@ -1,14 +1,14 @@
-import { Badge, Button, Card, Flex, Skeleton, Text } from "@radix-ui/themes";
-import { Product, Sale } from "../../../generated/prisma";
-import Image from "next/image";
 import { ProductWithSale } from "@/lib/types";
+import { Badge, Card, Flex, Skeleton, Text } from "@radix-ui/themes";
+import Image from "next/image";
+import { Product } from "../../../generated/prisma";
 
 
 
 export default function ProductCard({ product, loading }: { product: ProductWithSale | Product, loading: boolean }) {
     return (
         <Skeleton loading={loading} >
-            <div className=" max-h-max "> 
+            <div className=" max-h-max ">
 
                 <Card className="p-4 md:min-h-[390px] min-h-[200px] flex md:flex-col md:w-md w-screen m-2  ">
 
@@ -20,12 +20,13 @@ export default function ProductCard({ product, loading }: { product: ProductWith
                                     src={product?.imageUrl}
                                     alt={product?.title}
                                     fill
+                                    sizes="(max-width: 768px) 160px, 256px"
                                     className="object-contain w-full h-full"
-                              
                                     onError={(e) => {
                                         (e.target as HTMLImageElement).style.display = "none";
                                     }}
                                 />
+
                             </div>
 
                         </div>

@@ -5,7 +5,6 @@ import { ProductWithSale } from "@/lib/types";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import ProductCard from "../cards/product-card";
-import { Skeleton, Spinner } from "@radix-ui/themes";
 import LoadingScreen from "../reuseable-componets/loading-spinner";
 
 export default function ProductList() {

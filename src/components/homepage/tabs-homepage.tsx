@@ -1,11 +1,10 @@
 "use client"
 import { Box, Card, Flex, Tabs } from "@radix-ui/themes";
-import { useContext, useState } from "react";
+import { useContext } from "react";
 import AddProductsButton from "../admin-components/add-products-btn";
 import AdminDashBoard from "../admin-components/admin-dashbord";
 import { UserContext } from "../contexts/user-context";
 import ProductList from "./products list";
-import LoadingScreen from "../reuseable-componets/loading-spinner";
 
 export default function TabsHome() {
     const { user } = useContext(UserContext)

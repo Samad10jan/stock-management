@@ -1,6 +1,5 @@
 import { logOut } from "@/lib/helper";
 import { Button, DropdownMenu } from "@radix-ui/themes";
-import { ChevronDown } from "lucide-react";
 import Link from "next/link";
 
 export default function DropMenu() {

@@ -37,9 +37,6 @@ export default function AddSaleButton({ product }: { product: Product | ProductW
 
                 resp = "Sale ✅"
 
-
-
-
             }
         } catch (err: any) {
             console.error(err);

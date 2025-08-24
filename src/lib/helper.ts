@@ -1,6 +1,6 @@
 "use server"
 import { verifyToken } from "@/lib/services/jwt";
-import prismaClient from "@/lib/services/prisma";
+
 import { cookies } from "next/headers";
 import { redirect } from "next/navigation";
 import gqlClient from "./services/gql";
@@ -12,7 +12,7 @@ export default async function getUserFromCookies() {
 
         const cookiesStore = await cookies();
         const token = cookiesStore.get("token")?.value
-        console.log("token:", token);
+        // console.log("token:", token);
 
 
 

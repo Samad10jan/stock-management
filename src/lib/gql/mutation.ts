@@ -1,5 +1,4 @@
 import { gql } from "graphql-request";
-import gqlClient from "../services/gql";
 
 export const CREATE_USER = gql`
 

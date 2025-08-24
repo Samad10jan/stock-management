@@ -11,8 +11,6 @@ export default function ProductSaleChart({data}:{
 }) 
 {
     
-    
-    
   
   return (
     <ResponsiveContainer width="100%" height="100%">

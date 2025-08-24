@@ -1,8 +1,7 @@
 
-import { Avatar, Badge, Box, Button, Card, Flex, Skeleton, Text } from "@radix-ui/themes"
-import { User } from "../../../generated/prisma"
-import { Delete, DeleteIcon, EditIcon } from "lucide-react"
+import { Avatar, Badge, Box, Button, Card, Flex, Text } from "@radix-ui/themes"
 import Link from "next/link"
+import { User } from "../../../generated/prisma"
 
 export default function UserCard({ user }: {
     user: User,
