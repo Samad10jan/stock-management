@@ -17,7 +17,7 @@ export default function ProductCard({ product, loading }: { product: ProductWith
                             <div className="relative md:w-64 md:h-50 w-40 h-35">
 
                                 <Image
-                                    src={product?.imageUrl}
+                                    src={product?.imageUrl || "https://upload.wikimedia.org/wikipedia/commons/thumb/a/ac/No_image_available.svg/240px-No_image_available.svg.png"}
                                     alt={product?.title}
                                     fill
                                     sizes="(max-width: 768px) 160px, 256px"

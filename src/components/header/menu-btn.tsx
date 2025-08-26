@@ -11,7 +11,7 @@ export default function DropMenu() {
 
                     <div className="hidden md:inline">
 
-                        <Button variant="surface">
+                        <Button variant="surface" title="menu">
                             <DropdownMenu.TriggerIcon />
                         </Button>
                     </div>

@@ -75,6 +75,7 @@ export default function Header() {
                 <Button
                     className="md:!size-12 !size-10 !rounded-full transition-all hover:scale-105"
                     variant="outline"
+                    title="ThemeButton"
                     onClick={() => setIsDark(!isDark)}
                 >
                     {isDark ?
@@ -93,6 +94,7 @@ export default function Header() {
                                     fallback={user?.name?.[0] || "U"}
                                     sizes="(max-width: 768px) 32px, 48px"
                                     className="md:!size-12 !size-8 ring-2 ring-blue-500/20"
+                                    alt="UserProfile"
                                 />
 
 
