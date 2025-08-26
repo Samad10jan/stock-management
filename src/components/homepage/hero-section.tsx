@@ -92,7 +92,7 @@ export default function HeroSection() {
                         </Card>
                     </div>
                 </div>
-                <Card variant="surface" className={`size-0 md:w-[40%] md:min-h-[325px] shadow-blue-600 shadow-xl/20 hidden `}>
+                <Card variant="surface" className={`md:!block md:w-fit md:min-h-[325px] shadow-blue-600 shadow-xl/20 !hidden `}>
                     <PieChartHero />
                 </Card>
             </div>
