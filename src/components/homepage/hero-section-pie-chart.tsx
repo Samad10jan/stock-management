@@ -2,11 +2,10 @@
 
 import { GET_All_PROD } from "@/lib/gql/queries";
 import gqlClient from "@/lib/services/gql";
+import { Card, Heading, Spinner, Text } from "@radix-ui/themes";
 import { useEffect, useState } from "react";
 import { Cell, Pie, PieChart, ResponsiveContainer, Sector } from "recharts";
 import { Product } from "../../../generated/prisma";
-import { Heading, Text } from "@radix-ui/themes";
-import LoadingScreen from "../reuseable-componets/loading-spinner";
 
 const COLORS = [
   "#8884d8",
@@ -98,7 +97,7 @@ export default function PieChartHero() {
     async function getProduct() {
       try {
         const data: { getAllPorducts: Product[] } = await gqlClient.request(GET_All_PROD);
-        
+
         if (data.getAllPorducts) {
           setProducts(data.getAllPorducts);
         }
@@ -122,19 +121,13 @@ export default function PieChartHero() {
     setActiveIndex(index);
   };
 
-  if (loading) {
-    return (
-      <div className="hidden md:block">
-        <LoadingScreen />
-      </div>
-    );
-  }
+
 
   return (
-   
-    <div className="hidden md:flex w-full h-full rounded-full relative">
-    
-      <div className="absolute top-0 left-0 z-10">
+
+    <Card className=" !hidden md:!flex !relative " variant="surface">
+
+      <div className="absolute top-3 left-4 z-10">
         <Heading size={{ initial: "3", md: "4" }} className="mb-1">
           Stock Distribution
         </Heading>
@@ -143,31 +136,36 @@ export default function PieChartHero() {
         </Text>
       </div>
 
-     
+
       <div className="flex flex-col items-center w-2xl">
-        <ResponsiveContainer width="90%" height="100%">
-          <PieChart>
-            <Pie
-              //@ts-ignore
-              activeIndex={activeIndex}
-              activeShape={renderActiveShape}
-              data={Data}
-              cx="50%"
-              cy="55%"
-              innerRadius={40} // Smaller on medium screens
-              outerRadius={80}  // Smaller on medium screens
-              fill="#8884d8"
-              dataKey="stock"
-              onMouseEnter={onPieEnter}
-            
-            >
-              {Data.map((entry, index) => (
-                <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
-              ))}
-            </Pie>
-          </PieChart>
-        </ResponsiveContainer>
+        {loading ? <div className="my-auto flex"> <div className="text-lg font-medium">Loading...</div>
+          <Spinner size="3" /></div>
+          :
+
+          <ResponsiveContainer width="100%" height="100%">
+            <PieChart>
+              <Pie
+                //@ts-ignore
+                activeIndex={activeIndex}
+                activeShape={renderActiveShape}
+                data={Data}
+                cx="50%"
+                cy="55%"
+                innerRadius={40} // Smaller on medium screens
+                outerRadius={80}  // Smaller on medium screens
+                fill="#8884d8"
+                dataKey="stock"
+                onMouseEnter={onPieEnter}
+
+              >
+                {Data.map((entry, index) => (
+                  <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
+                ))}
+              </Pie>
+            </PieChart>
+          </ResponsiveContainer>
+        }
       </div>
-    </div>
+    </Card>
   );
 }
