@@ -48,7 +48,7 @@ export default function AddSaleButton({ product }: { product: Product | ProductW
         }finally{
 
             setResponse(resp)
-            window.location.href=`/product/${product.id}`
+            window.location.href=`/products/${product.id}`
         }
     }
 
