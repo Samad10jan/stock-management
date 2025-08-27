@@ -37,14 +37,19 @@ export default function AddSaleButton({ product }: { product: Product | ProductW
 
                 resp = "Sale ✅"
 
+                
+
             }
         } catch (err: any) {
             console.error(err);
 
             resp = "Failed to Sale ❌"
 
+        }finally{
+
+            setResponse(resp)
+            window.location.href=`/product/${product.id}`
         }
-        setResponse(resp)
     }
 
     return (

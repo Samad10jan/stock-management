@@ -4,7 +4,6 @@ import Image from "next/image";
 import { Product } from "../../../generated/prisma";
 
 
-
 export default function ProductCard({ product, loading }: { product: ProductWithSale | Product, loading: boolean }) {
     return (
         <Skeleton loading={loading} >
@@ -19,6 +18,7 @@ export default function ProductCard({ product, loading }: { product: ProductWith
                                 <Image
                                     src={product?.imageUrl || "https://upload.wikimedia.org/wikipedia/commons/thumb/a/ac/No_image_available.svg/240px-No_image_available.svg.png"}
                                     alt={product?.title}
+                                    
                                     fill
                                     sizes="(max-width: 768px) 160px, 256px"
                                     className="object-contain w-full h-full"
