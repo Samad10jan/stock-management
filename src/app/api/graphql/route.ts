@@ -2,7 +2,7 @@ import { ApolloServer } from "@apollo/server";
 import { startServerAndCreateNextHandler } from "@as-integrations/next";
 
 import getUserFromCookies from "@/lib/helper";
-import { addProducts, createSale, getAllPorducts, getProduct } from "./resolver-functions/products";
+import { addProducts, createSale, getAllPorducts, getAllPorductsSugestions, getProduct } from "./resolver-functions/products";
 import { createUser, getAllUsers, getUser, logginUser, updateUserProfile, updateUserRole } from "./resolver-functions/user/resolver";
 import typeDefs from "./typeDefs/typeDefs";
 
@@ -13,7 +13,8 @@ const resolvers = {
         getAllUsers:getAllUsers,
         getAllPorducts:getAllPorducts,
         getProduct:getProduct,
-        getUser:getUser
+        getUser:getUser,
+        getAllPorductsSugestions:getAllPorductsSugestions
        
     },
     Mutation:{

@@ -8,6 +8,7 @@ const typeDefs = gql`
     getAllPorducts:[Product]
     getProduct(id:String):Product
     getUser(id:String):User
+    getAllPorductsSugestions(query:String):[Product]
   },
   type Mutation{
     createUser(name:String!,email:String!,username:String!,password:String!,role:String!):User

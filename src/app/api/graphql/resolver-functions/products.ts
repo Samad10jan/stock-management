@@ -107,3 +107,24 @@ export async function createSale(_:any,args:{id:string,quantity:number}) {
     }
     
 }
+
+export async function getAllPorductsSugestions(_:any,args:{query:string}) {
+    try {
+        const products = await prismaClient.product.findMany({
+            where:{
+                title:{
+                    contains:args.query,
+                    mode:"insensitive"
+                }
+            },
+            take:5
+           
+        })
+
+        return products
+    } catch (error) {
+        return null
+
+    }
+
+}

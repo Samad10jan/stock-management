@@ -69,3 +69,9 @@ query GetProduct($getProductId: String) {
   }
 }
 `
+export const GET_SUGGESTIONS = gql`
+query GetAllPorductsSugestions($query: String) {
+  getAllPorductsSugestions(query: $query) {
+    title,id
+  }
+}`
