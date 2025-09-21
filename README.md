@@ -58,7 +58,7 @@ A comprehensive stock management system built with Next.js, featuring role-based
 - **Authentication:** Custom authentication system
 - **UI Components:** Tailwind CSS + Radix UI
 - **State Management:** React Context API and useState
-- **Charts:** Recharts for data visualization
+- **Charts:** For data visualization
 - **Styling:** Tailwind CSS
 
 ## 📋 Prerequisites
@@ -193,7 +193,7 @@ The application uses GraphQL for efficient data operations:
 
 ## 📧 Contact
 
-Project Link: [https://github.com/Samad10jan/stock-managemen](https://github.com/Samad10jan/stock-managemen)
+Project Link: [https://github.com/Samad10jan/stock-managemen](https://github.com/Samad10jan/stock-management)
 
 ---
 
