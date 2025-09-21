@@ -5,8 +5,7 @@ A comprehensive stock management system built with Next.js, featuring role-based
 ## 🖼️ Screenshots / Demo
 
 ### 🔑 Login Page
-<img width="1920" height="1020" alt="image" src="https://github.com/user-attachments/assets/b8bf0865-8770-41e7-9ccb-92f932d50702" />
-
+<img width="1906" height="912" alt="image" src="https://github.com/user-attachments/assets/babe4c7a-1e22-43d6-9603-5514fe24b5f8" />
 
 ### 📊 Dashboard Overview
 <img width="1920" height="1020" alt="image" src="https://github.com/user-attachments/assets/2dfc89cc-eaf3-4e77-bb33-c783c3fe7eec" />
