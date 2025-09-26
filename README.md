@@ -5,19 +5,21 @@ A comprehensive stock management system built with Next.js, featuring role-based
 ## 🖼️ Screenshots / Demo
 
 ### 🔑 Login Page
-<img width="1920" height="1020" alt="image" src="https://github.com/user-attachments/assets/b8bf0865-8770-41e7-9ccb-92f932d50702" />
+<img width="1906" height="912" alt="image" src="https://github.com/user-attachments/assets/babe4c7a-1e22-43d6-9603-5514fe24b5f8" />
 
+### 📊 Dashboard Overview with DarkMode On
+<img width="1889" height="916" alt="image" src="https://github.com/user-attachments/assets/7dae58f6-efe8-4844-ab51-ab6b44d5ffd7" />
 
-### 📊 Dashboard Overview
-<img width="1920" height="1020" alt="image" src="https://github.com/user-attachments/assets/2dfc89cc-eaf3-4e77-bb33-c783c3fe7eec" />
 
 
 ### 👤 Profile Page
-<img width="1920" height="1020" alt="image" src="https://github.com/user-attachments/assets/33c0ca3d-d3c7-4366-8e35-cbfc80c2e4d5" />
+<img width="1887" height="906" alt="image" src="https://github.com/user-attachments/assets/49ba076a-64d0-47f2-a0c8-158e6a0065e3" />
 
 
-### 👨‍💼 User Details Page
-<img width="1920" height="1020" alt="image" src="https://github.com/user-attachments/assets/cbb9d11a-0ea9-4cf4-8d78-45f4ab5c0498" />
+
+### 👨‍💼 Users Details Page
+<img width="1913" height="911" alt="image" src="https://github.com/user-attachments/assets/312d0aff-9b97-44d7-ae2d-73a36d6c0b9a" />
+
 
 
 ### 🛒 Product Management
@@ -25,10 +27,12 @@ A comprehensive stock management system built with Next.js, featuring role-based
 
 ### Product Detail Page
 
-<img width="1913" height="961" alt="image" src="https://github.com/user-attachments/assets/8769a598-720a-4253-b683-ade369cbe280" />
+<img width="1916" height="916" alt="image" src="https://github.com/user-attachments/assets/6a939200-1847-4ce4-8084-5fdd885eb2dd" />
+
 
 ### 👥 Admin Dashboard - User Management
-<img width="1920" height="1020" alt="image" src="https://github.com/user-attachments/assets/00f5cdfe-ccec-42a0-8ffa-c11edf1a0ba8" />
+<img width="1907" height="916" alt="image" src="https://github.com/user-attachments/assets/12524bfd-6e3c-46ca-b44c-eef28e148050" />
+
 
 
 ## ✨ Features
@@ -59,7 +63,7 @@ A comprehensive stock management system built with Next.js, featuring role-based
 - **Authentication:** Custom authentication system
 - **UI Components:** Tailwind CSS + Radix UI
 - **State Management:** React Context API and useState
-- **Charts:** Recharts for data visualization
+- **Charts:** For data visualization
 - **Styling:** Tailwind CSS
 
 ## 📋 Prerequisites
@@ -194,7 +198,7 @@ The application uses GraphQL for efficient data operations:
 
 ## 📧 Contact
 
-Project Link: [https://github.com/Samad10jan/stock-managemen](https://github.com/Samad10jan/stock-managemen)
+Project Link: [https://github.com/Samad10jan/stock-managemen](https://github.com/Samad10jan/stock-management)
 
 ---
 
