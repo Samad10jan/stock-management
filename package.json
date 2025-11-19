@@ -7,12 +7,9 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "postinstall": "prisma generate && npx lightningcss rebuild"
+    "postinstall": "prisma generate"
   },
   "dependencies": {
-    "next": "^14.2.0",
-    "react": "^18.3.0",
-    "react-dom": "^18.3.0",
     "@apollo/server": "^5.0.0",
     "@as-integrations/next": "^4.0.0",
     "@prisma/client": "^6.13.0",
@@ -21,20 +18,21 @@
     "graphql-request": "^7.2.0",
     "graphql-tag": "^2.12.6",
     "jsonwebtoken": "^9.0.2",
+    "lightningcss": "^1.30.2",
     "lucide-react": "^0.539.0",
+    "next": "15.4.6",
+    "react": "19.1.0",
+    "react-dom": "19.1.0",
     "recharts": "^3.1.2"
   },
   "devDependencies": {
-    "@tailwindcss/postcss": "^3.3.2",
-    "tailwindcss": "^3.3.3",
+    "@tailwindcss/postcss": "^4",
     "@types/jsonwebtoken": "^9.0.10",
     "@types/node": "^20",
-    "@types/react": "^18.3.0",
-    "@types/react-dom": "^18.3.0",
+    "@types/react": "^19",
+    "@types/react-dom": "^19",
     "prisma": "^6.13.0",
-    "typescript": "^5.3.0"
-  },
-  "engines": {
-    "node": "20.x"
+    "tailwindcss": "^4",
+    "typescript": "^5"
   }
 }
