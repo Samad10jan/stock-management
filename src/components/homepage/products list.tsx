@@ -6,6 +6,7 @@ import Link from "next/link";
 import { useEffect, useState } from "react";
 import ProductCard from "../cards/product-card";
 import LoadingScreen from "../reuseable-componets/loading-spinner";
+import { Card } from "@radix-ui/themes";
 
 export default function ProductList() {
     const [products, setProducts] = useState<ProductWithSale[]>([])
@@ -43,7 +44,7 @@ export default function ProductList() {
 
     return (
 
-        <div className="flex flex-wrap justify-center">
+        <Card className="!flex !flex-wrap !justify-center !gap-3 mt-1">
 
 
             {
@@ -60,7 +61,7 @@ export default function ProductList() {
             }
 
 
-        </div>
+        </Card>
 
     )
 }
