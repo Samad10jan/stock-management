@@ -18,23 +18,23 @@ export default function UserCard({ user }: { user: User }) {
 
     return (
         
-            <div className="xl:!w-md !w-full md:!w-md">
-                <Flex gap="4" align="center" justify="between" className="!flex-wrap sm:!flex-nowrap">
+            
+                <Flex gap="4" align="center" justify="between" className="!flex-wrap">
                     
-                    <Flex gap="3" align="center" className="!flex-shrink-0">
+                    <Flex gap="3" className="!flex-shrink-0 xl:flex-row lg:flex-row flex-col w-full  ">
                         <Avatar
-                            size="5"
+                            size="3"
                             src={user?.avatar || ""}
                             radius="full"
                             fallback={user.name?.[0]?.toUpperCase() || "U"}
-                            className="!ring-2 !ring-gray-200"
+                            className="!ring-2 !ring-gray-200 xl:mx-0 lg:mx-0 mx-auto "
                         />
                         
-                        <Box className="!flex !flex-col !gap-1">
+                        <Box className="!flex !flex-col !gap-1 ">
                             <Text as="div" size="4" weight="bold" className="!">
                                 {user.name}
                             </Text>
-                            <Text as="div" size="2" className=" !truncate !max-w-[180px]">
+                            <Text as="div" size="2" className=" !truncate ">
                                 {user.email}
                             </Text>
                         </Box>
@@ -64,7 +64,7 @@ export default function UserCard({ user }: { user: User }) {
                     </Flex>
                     
                 </Flex>
-            </div>
+           
        
     )
 }

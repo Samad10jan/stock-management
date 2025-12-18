@@ -55,7 +55,7 @@ export default function AddSaleButton({ product }: { product: Product | ProductW
     return (
         <div>
 
-            <Card className="w-fit p-3 flex items-center gap-3">
+            <Card className="!w-fit !p-3 !flex !items-center !justify-center !flex-wrap !gap-3">
                 <input
                     value={quantity}
                     type="number"
@@ -66,7 +66,7 @@ export default function AddSaleButton({ product }: { product: Product | ProductW
                 />
                 <button
                     onClick={handleSale}
-                    className="bg-blue-600 text-white px-3 py-1 rounded hover:bg-blue-700"
+                    className="bg-blue-600 text-white px-3 py-1 !mx-auto rounded hover:bg-blue-700"
                 >
                     Add Sale
                 </button>

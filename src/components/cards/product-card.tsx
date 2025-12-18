@@ -7,9 +7,9 @@ import { Product } from "../../../generated/prisma";
 export default function ProductCard({ product, loading }: { product: ProductWithSale | Product, loading: boolean }) {
     return (
         <Skeleton loading={loading} >
-            <div className=" max-h-max ">
+          
 
-                <Card className="p-4 md:min-h-[390px] min-h-[200px] flex md:flex-col md:w-md w-screen m-2  ">
+                <Card className="p-4 md:min-h-[390px] min-h-[200px] flex md:flex-col md:w-xs m-2  ">
 
                     {product?.imageUrl && (
                         <div className="mb-3 flex items-center justify-center overflow-hidden rounded-md bg-gray-50 md:min-h-[100px] min-h-[90px] ">
@@ -81,7 +81,7 @@ export default function ProductCard({ product, loading }: { product: ProductWith
                     </Flex>
                 </Card>
 
-            </div >
+          
         </Skeleton>
     );
 }

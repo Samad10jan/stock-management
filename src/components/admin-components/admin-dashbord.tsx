@@ -168,7 +168,7 @@ export default function AdminDashBoard() {
       </div>
 
       {/* Users List Section */}
-      <Card className="!p-6 sm:!p-8">
+      <Card className="!p-5 sm:!p-5 ">
         <Flex direction="column" gap="4">
           <Flex justify="between" align="center" wrap="wrap" gap="3">
             <div>
@@ -192,7 +192,7 @@ export default function AdminDashBoard() {
           <div className="!flex !flex-wrap gap-2 !mt-4">
             {users.length > 0 ? (
               users.map((u) => (
-                <Card key={u.id} className="!p-5 hover:!shadow-lg !transition-shadow">
+                <Card key={u.id} className="!p-5 hover:!shadow-lg !transition-shadow w-full">
                   <UserCard user={u} />
                 </Card>
               ))
@@ -211,21 +211,7 @@ export default function AdminDashBoard() {
         </Flex>
       </Card>
 
-      {/* Additional Info Card */}
-      <Card className="!p-6  dark:!bg-blue-900/20 !border-blue-200 dark:!border-blue-800">
-        <Flex gap="3" align="start">
-          <Shield className="!w-5 !h-5 !text-blue-600 dark:!text-blue-400 !mt-1 shrink-0" />
-          <div>
-            <Text size="3" weight="bold" className="!block !mb-1 !text-blue-900 ">
-              Admin Privileges
-            </Text>
-            <Text size="2" className="!text-blue-700 dark:!text-blue-300">
-              You have full access to manage users, assign roles, and monitor system activity. 
-              Use these privileges responsibly.
-            </Text>
-          </div>
-        </Flex>
-      </Card>
+     
     </div>
   )
 }

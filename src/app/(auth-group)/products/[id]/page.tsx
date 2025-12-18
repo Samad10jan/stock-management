@@ -196,7 +196,7 @@ export default function ProductPage() {
                   </Flex>
                 )}
 
-                <Box className="!mt-auto !pt-4">
+                <Box className="!mt-auto !pt-4 !mx-auto">
                   <AddSaleButton product={product as ProductWithSale} />
                 </Box>
               </Flex>
